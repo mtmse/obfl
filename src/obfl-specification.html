@@ -24,6 +24,7 @@
     <dd>Joel Håkansson</dd>
   <dt>Contributors:</dt>
    <dd>Bert Frees</dd>
+   <dd>Paul Rambags</dd>
 </dl>
 
 <h2 id="L62">Abstract</h2>
@@ -261,7 +262,7 @@ braille.</p>
 <p>In a word processor this:</p>
 <pre>  &lt;p&gt;We offer free&lt;em&gt; technical support &lt;/em&gt;for subscribers.&lt;/p&gt;</pre>
 
-<p>is visually equvialent to:</p>
+<p>is visually equivalent to:</p>
 <pre>  &lt;p&gt;We offer free &lt;em&gt;technical support&lt;/em&gt; for subscribers.&lt;/p&gt;</pre>
 
 <p>In braille however, the former will be percieved as an error as the braille
@@ -1179,7 +1180,7 @@ information.</p>
 <div class="sidebar">
 <dl>
   <dt>Usage</dt>
-    <dd class="markup">before, after, field, toc-entry, block, item, style</dd>
+    <dd class="markup">before, after, field, toc-entry-content, block, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>expression [required]</dt>
@@ -1209,7 +1210,7 @@ the current row.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry-content, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>align [optional]</dt>
@@ -1238,7 +1239,7 @@ refered to in headers and footers.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry-content, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>class [required]</dt>
@@ -1281,7 +1282,7 @@ paragraph).</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry-content, block, item</dd>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
 </dl>
@@ -1295,7 +1296,7 @@ element.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item, style</dd>
+    <dd>before, after, toc-entry-content, block, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>ref-id [required]</dt>
@@ -1318,7 +1319,7 @@ language is different from the surrounding text.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry-content, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>xml:lang [optional]</dt>
@@ -1350,7 +1351,7 @@ emphasis or strong.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item, span, style</dd>
+    <dd>before, after, toc-entry-content, block, item, span, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>name [required]</dt>
@@ -1565,6 +1566,8 @@ references.</p>
 
 <p>The toc-entry element defines an entry in a table of contents.</p>
 
+<ins datetime="2019114T14:00:00">The contents of a toc-entry should be put in a child toc-entry-content element instead of in the toc-entry element itself.</ins>
+
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
@@ -1574,13 +1577,34 @@ references.</p>
         <dt>ref-id [required]</dt>
           <dd>The id of the block this entry is connected with.</dd>
       </dl>
+    </dd>
+  <dt>Content Model</dt>
+    <dd>toc-entry-content [1 or more], toc-entry [0 or more]</dd>
+	<dd>There must be exactly one toc-entry-content element without a use-when attribute.</dd>
+</dl>
+</div>
+
+<h4 id="L1106" class="include">toc-entry-content</h4>
+
+<p>The toc-entry-content element defines the content of a toc-entry.</p>
+
+<div class="sidebar markup">
+<dl>
+  <dt>Usage</dt>
+    <dd>toc-entry</dd>
+  <dt>Attributes</dt>
+    <dd><dl>
+        <dt>use-when [optional]</dt>
+          <dd>A condition.</dd>
+		  <dd>The only currently supported condition is: $resumed.</dd>
+      </dl>
       <p>This element supports the <a href="#block-atts">Block</a>, <a href="#margin-atts">Margin</a>
         and <a href="#padding-atts">Padding</a> attributes groups.</p>
       <p>This element supports the <a href="#borders">Borders</a> attribute
       group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, toc-entry, page-number, span,
+    <dd>text(), leader, marker, br, evaluate, page-number, span,
       style [0 or more]</dd>
 </dl>
 </div>
@@ -1628,6 +1652,9 @@ data.</p>
           <dd>Specifies a translation policy.</dd>
           <dd>See the <a href="#L2462">attribute description</a> for more
             information.</dd>
+        <dt>apply-toc-entry-content-use-when [optional]</dt>
+          <dd>Whether or not to use the toc-entry-content elements in the corresponding table-of-contents that have a use-when attribute.</dd>
+          <dd>One of 'false' (default) or 'true'.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>

@@ -802,11 +802,11 @@
   <define name="toc-entry">
     <element name="toc-entry">
       <ref name="attlist-toc-entry"/>
+      <oneOrMore>
+        <ref name="toc-entry-content"/>
+      </oneOrMore>
       <zeroOrMore>
-        <choice>
-          <ref name="blockContents"/>
-          <ref name="toc-entry"/>
-        </choice>
+        <ref name="toc-entry"/>
       </zeroOrMore>
     </element>
   </define>
@@ -814,6 +814,19 @@
     <attribute name="ref-id">
       <data type="IDREF"/>
     </attribute>
+  </define>
+  <define name="toc-entry-content">
+    <element name="toc-entry-content">
+      <ref name="attlist-toc-entry-content"/>
+      <zeroOrMore>
+        <ref name="blockContents"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="attlist-toc-entry-content" combine="interleave">
+    <optional>
+      <attribute name="use-when"/>
+    </optional>
     <ref name="blockAtts"/>
   </define>
   <define name="volume-template">
@@ -971,6 +984,11 @@
         <value>volume</value>
       </choice>
     </attribute>
+	<optional>
+	  <attribute name="apply-toc-entry-content-use-when">
+	    <data type="boolean"/>
+	  </attribute>
+	</optional>
     <ref name="sequenceAtts"/>
   </define>
   <define name="on-toc-start">
@@ -1713,6 +1731,7 @@
           <name>dynamic-sequence</name>
           <name>xml-data</name>
           <name>toc-entry</name>
+          <name>toc-entry-content</name>
           <name>page-number</name>
           <name>list-of-references</name>
           <name>page-area</name>
