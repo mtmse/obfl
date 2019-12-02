@@ -1078,7 +1078,8 @@ should be excluded entirely.</p>
   <dt>Usage</dt>
     <dd>before, after, sequence, dynamic-sequence, on-collection-start,
       on-page-start, on-page-end, on-collection-end, on-toc-start,
-      on-volume-start, on-volume-end, on-toc-end, item, td, block</dd>
+      on-volume-start, on-volume-end, on-toc-end, item, td, block,
+      toc-block</dd>
   <dt>General Attributes</dt>
   <dd><p>This element supports the <a href="#block-atts">Block</a>, <a href="#margin-atts">Margin</a>
     and <a href="#padding-atts">Padding</a> attributes groups.</p>
@@ -1180,7 +1181,7 @@ information.</p>
 <div class="sidebar">
 <dl>
   <dt>Usage</dt>
-    <dd class="markup">before, after, field, toc-entry, block, item, style</dd>
+    <dd class="markup">before, after, field, toc-entry, block, toc-block, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>expression [required]</dt>
@@ -1210,7 +1211,7 @@ the current row.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry, block, toc-block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>align [optional]</dt>
@@ -1239,7 +1240,7 @@ refered to in headers and footers.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry, block, toc-block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>class [required]</dt>
@@ -1262,7 +1263,7 @@ item has a connection to the text near the location of the anchor.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>span, style, block</dd>
+    <dd>span, style, block, toc-block</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>item [required]</dt>
@@ -1282,7 +1283,7 @@ paragraph).</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry, block, toc-block, item</dd>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
 </dl>
@@ -1296,7 +1297,7 @@ element.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item, style</dd>
+    <dd>before, after, toc-entry, block, toc-block, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>ref-id [required]</dt>
@@ -1319,7 +1320,7 @@ language is different from the surrounding text.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry, block, toc-block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>xml:lang [optional]</dt>
@@ -1351,7 +1352,7 @@ emphasis or strong.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item, span, style</dd>
+    <dd>before, after, toc-entry, block, toc-block, item, span, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>name [required]</dt>
@@ -1373,7 +1374,7 @@ of a table.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>sequence, block</dd>
+    <dd>sequence, block, toc-block</dd>
   <dt>Attributes</dt>
     <dd>
        <dl>
@@ -2231,7 +2232,7 @@ of this element must be usable as a stand-alone source document.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>sequence, block, td</dd>
+    <dd>sequence, block, toc-block, td</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>renderer [required]</dt>
