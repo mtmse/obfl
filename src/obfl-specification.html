@@ -648,7 +648,7 @@ identifier elsewhere (but it should be referenced).</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>Emtpy.</dd>
+    <dd>Empty.</dd>
 </dl>
 </div>
 
@@ -921,11 +921,11 @@ the search could eventually hit an existing page. Depending on the scope,
   <dt>spread</dt>
     <dd>if the current page belongs to the same spread as the page with the
       specified offset (had it existed), start the search on the first existing
-      page in the search direction, otherwise return the emtpy string</dd>
+      page in the search direction, otherwise return the empty string</dd>
   <dt>sheet</dt>
     <dd>if the current page belongs to the same sheet as the page with the
       specified offset (had it existed), start the search on the first existing
-      page in the search direction, otherwise return the emtpy string</dd>
+      page in the search direction, otherwise return the empty string</dd>
   <dt>sequence</dt>
     <dd>start the search on the first existing page in the search direction</dd>
   <dt>volume</dt>
@@ -1078,8 +1078,7 @@ should be excluded entirely.</p>
   <dt>Usage</dt>
     <dd>before, after, sequence, dynamic-sequence, on-collection-start,
       on-page-start, on-page-end, on-collection-end, on-toc-start,
-      on-volume-start, on-volume-end, on-toc-end, item, td, block,
-      toc-block</dd>
+      on-volume-start, on-volume-end, on-toc-end, item, td, block</dd>
   <dt>General Attributes</dt>
   <dd><p>This element supports the <a href="#block-atts">Block</a>, <a href="#margin-atts">Margin</a>
     and <a href="#padding-atts">Padding</a> attributes groups.</p>
@@ -1181,7 +1180,7 @@ information.</p>
 <div class="sidebar">
 <dl>
   <dt>Usage</dt>
-    <dd class="markup">before, after, field, toc-entry, block, toc-block, item, style</dd>
+    <dd class="markup">before, after, field, toc-entry, block, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>expression [required]</dt>
@@ -1193,7 +1192,7 @@ information.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>Emtpy.</dd>
+    <dd>Empty.</dd>
 </dl>
 </div>
 
@@ -1211,7 +1210,7 @@ the current row.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, toc-block, item</dd>
+    <dd>before, after, toc-entry, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>align [optional]</dt>
@@ -1240,7 +1239,7 @@ refered to in headers and footers.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, toc-block, item</dd>
+    <dd>before, after, toc-entry, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>class [required]</dt>
@@ -1263,7 +1262,7 @@ item has a connection to the text near the location of the anchor.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>span, style, block, toc-block</dd>
+    <dd>span, style, block</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>item [required]</dt>
@@ -1283,7 +1282,7 @@ paragraph).</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, toc-block, item</dd>
+    <dd>before, after, toc-entry, block, item</dd>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
 </dl>
@@ -1297,7 +1296,7 @@ element.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, toc-block, item, style</dd>
+    <dd>before, after, toc-entry, block, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>ref-id [required]</dt>
@@ -1320,7 +1319,7 @@ language is different from the surrounding text.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, toc-block, item</dd>
+    <dd>before, after, toc-entry, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>xml:lang [optional]</dt>
@@ -1352,7 +1351,7 @@ emphasis or strong.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, toc-block, item, span, style</dd>
+    <dd>before, after, toc-entry, block, item, span, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>name [required]</dt>
@@ -1374,7 +1373,7 @@ of a table.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>sequence, block, toc-block</dd>
+    <dd>sequence, block</dd>
   <dt>Attributes</dt>
     <dd>
        <dl>
@@ -1544,9 +1543,7 @@ table spans.</p>
 
 <p>The table-of-contents element defines the entries in a table of contents.
 Note that this element specifies formatting of data in a table of contents, it
-does not by it self specify that a table of contents should be inserted. It is
-required that the order of the toc-entries is consistent with the blocks it
-references.</p>
+does not by it self specify that a table of contents should be inserted.</p>
 
 <ins datetime="20191202T11:00:00">The table of contents is a hierarchy of toc-block
 elements with toc-entry elements as inline content.</ins>
@@ -1568,8 +1565,8 @@ elements with toc-entry elements as inline content.</ins>
 
 <h4 id="L735" class="include">toc-block</h4>
 
-<p>The toc-block element defines a block of text that can be used within a
-table of contents. It is an extension of the block element with toc-entries.</p>
+<p>The toc-block element defines a block of entries that can be used within a
+table of contents. A toc-block without descendant entries will not be rendered.</p>
 
 <div class="sidebar markup">
 <dl>
@@ -1581,95 +1578,17 @@ table of contents. It is an extension of the block element with toc-entries.</p>
       <p>This element supports the <a href="#borders">Borders</a> attribute
       group.</p>
     </dd>
-  <dt>Special Attributes</dt>
-    <dd>The following attributes only apply to block elements in the context of
-      the text body. 
-      <dl>
-        <dt>keep-with-previous-sheets [optional]</dt>
-          <dd>Indicates that <em>the end of</em> this block should be kept in
-            the same volume as the specified number of preceding sheets. This is
-            similar to widows, but for pages in a volume instead of rows on a
-            page The priority of this property is higher than the priority for 
-            the whole block, as specified by volume-keep-priority.</dd>
-          <dd>An integer in the range [0, 9]</dd>
-        <dt>keep-with-next-sheets [optional]</dt>
-          <dd>Indicates that <em>the beginning of</em> this block should be
-            kept in the same volume as the specified number of following
-          sheets. This is similar to orphans, but for pages in a volume instead
-           of rows on a page. The priority of this property is higher than the 
-           priority for the whole block, as specified by volume-keep-priority.</dd>
-          <dd>An integer in the range [0, 9]</dd>
-        <dt>volume-keep-priority [optional]</dt>
-          <dd>Indicates that the whole block should be kept in the same volume with the specified priority. This value is
-          inherited by descendants, unless overridden. This property will only affect the probability for breaking inside
-          this block, it will not affect the page layout.</dd>
-          <dd>An integer in the range [1, 9].</dd>
-          <dd>The higher the value, the lower the priority.</dd>
-          <dd>Default is to prefer volume breaks.</dd>
-        <dt>break-before [optional]</dt>
-          <dd class="no-markup">Inserts a break before the block begins.</dd>
-        <dd>One of:
-        <dl><dt>'auto' (default)</dt>
-          	<dt>'page'</dt>
-          	<dd>Insert a page break before the block.</dd>
-          	<dt>'sheet'</dt>
-          	<dd>Insert one or two page breaks before the block so that the next page is formatted as a right page.</dd>
-          </dl></dd>
-        <dt>keep [optional]</dt>
-          <dd>Keep rows in this block together by breaking pages early.</dd>
-          <dd>One of:
-          <dl><dt>'auto' (default)</dt>
-          	<dt>'page'</dt>
-          	<dd>break page early if the whole block doesn't fit on the page.</dd>
-          	<dt>'sheet'</dt>
-          	<dd>break page and sheet early if the whole block doesn't fit on the sheet.</dd>
-          	<dt>'volume'</dt>
-          	<dd>break page, sheet and volume early if the whole block doesn't fit in the volume.</dd>
-           </dl></dd>
-        <dt>keep-with-next [optional]</dt>
-          <dd>Keep the following block's first line(s) on the same page as this
-            block.</dd>
-          <dd>An integer in the range [0, 9].</dd>
-        <dt>orphans [optional]</dt>
-          <dd>Specifies the minimum number of lines of a paragraph that must be
-            left at the bottom of a page.</dd>
-          <dd>An integer in the range [1, 9].</dd>
-          <dd>Default is 1.</dd>
-        <dt>vertical-align [optional]</dt>
-          <dd>One of 'before', 'center', 'after'</dd>
-          <dd>Note that all block properties that effect the height of the
-            block are taken into account when aligning, both visible (i.e.
-            borders) and invisible (i.e. paddings and margins).</dd>
-        <dt>vertical-position [optional]</dt>
-          <dd>Specifies a vertical position for the block in row heights from
-            the top of the page body area.</dd>
-          <dd>Can be relative (percent) or absolute (a positive integer).</dd>
-          <dd>For example: 50% or 12</dd>
-          <dd>Note that vertical-positioning behave like leaders. In other
-            words, the vertical-position attribute can only increase the amount
-            of space preceding a block. It does not rearrange blocks. If a
-            second block has a vertical position lower than the block preceding
-            it, the second blocks vertical-position will either be ignored or
-            rendered on the following page, depending on the specific
-            situation. </dd>
-        <dt>widows [optional]</dt>
-          <dd>Specifies the minimum number of lines of a paragraph that must be
-            left at the top of a page.</dd>
-          <dd>An integer in the range [1, 9].</dd>
-          <dd>Default is 1.</dd>
-      </dl>
-    </dd>
   <dt>Content Model</dt>
-    <dd>toc-entry, toc-block, text(), leader, marker, br, evaluate, page-number, span, style, anchor, block, table, xml-data [0 or more]</dd>
+    <dd>toc-entry, toc-block [0 or more]</dd>
 </dl>
 </div>
 
 <h4 id="L1105" class="include">toc-entry</h4>
 
-<p>The toc-entry element defines an entry in a table of contents. It is a wrapper
-around inline content. In a volume-ranged toc-sequence, the inline content will
-only be shown if the block the toc-entry refers to starts in the current volume.
-In a document-ranged toc-sequence, the inline content will always be shown.</p>
+<p>The toc-entry element defines an entry in a table of contents. It is a
+conditional container of content. In a volume-ranged toc-sequence, the content
+will only be rendered if the block the toc-entry refers to starts in the current
+volume. In a document-ranged toc-sequence, the content will always be rendered.</p>
 
 <ins datetime="20191202T11:00:00">The toc-entry element has only inline content.</ins>
 
@@ -2232,7 +2151,7 @@ of this element must be usable as a stand-alone source document.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>sequence, block, toc-block, td</dd>
+    <dd>sequence, block, td</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>renderer [required]</dt>
