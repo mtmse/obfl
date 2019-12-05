@@ -792,21 +792,32 @@
     <element name="table-of-contents">
       <ref name="attlist-table-of-contents"/>
       <oneOrMore>
-        <ref name="toc-entry"/>
+        <ref name="toc-block"/>
       </oneOrMore>
     </element>
   </define>
   <define name="attlist-table-of-contents" combine="interleave">
     <ref name="name-id"/>
   </define>
+  <define name="toc-block">
+    <element name="toc-block">
+      <ref name="attlist-toc-block"/>
+      <zeroOrMore>
+        <choice>
+          <ref name="toc-entry"/>
+          <ref name="toc-block"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="attlist-toc-block" combine="interleave">
+    <ref name="blockAtts"/>
+  </define>
   <define name="toc-entry">
     <element name="toc-entry">
       <ref name="attlist-toc-entry"/>
       <zeroOrMore>
-        <choice>
-          <ref name="blockContents"/>
-          <ref name="toc-entry"/>
-        </choice>
+        <ref name="blockContents"/>
       </zeroOrMore>
     </element>
   </define>
@@ -814,7 +825,6 @@
     <attribute name="ref-id">
       <data type="IDREF"/>
     </attribute>
-    <ref name="blockAtts"/>
   </define>
   <define name="volume-template">
     <element name="volume-template">
@@ -1719,6 +1729,7 @@
           <name>item</name>
           <name>before</name>
           <name>block</name>
+          <name>toc-block</name>
           <name>td</name>
           <name>after</name>
         </except>
@@ -1754,6 +1765,7 @@
           <name>item</name>
           <name>before</name>
           <name>block</name>
+          <name>toc-block</name>
           <name>td</name>
           <name>after</name>
       </choice>

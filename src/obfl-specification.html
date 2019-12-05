@@ -23,7 +23,8 @@
   <dt>Author:</dt>
     <dd>Joel Håkansson</dd>
   <dt>Contributors:</dt>
-   <dd>Bert Frees</dd>
+    <dd>Bert Frees</dd>
+    <dd>Paul Rambags</dd>
 </dl>
 
 <h2 id="L62">Abstract</h2>
@@ -261,7 +262,7 @@ braille.</p>
 <p>In a word processor this:</p>
 <pre>  &lt;p&gt;We offer free&lt;em&gt; technical support &lt;/em&gt;for subscribers.&lt;/p&gt;</pre>
 
-<p>is visually equvialent to:</p>
+<p>is visually equivalent to:</p>
 <pre>  &lt;p&gt;We offer free &lt;em&gt;technical support&lt;/em&gt; for subscribers.&lt;/p&gt;</pre>
 
 <p>In braille however, the former will be percieved as an error as the braille
@@ -647,7 +648,7 @@ identifier elsewhere (but it should be referenced).</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>Emtpy.</dd>
+    <dd>Empty.</dd>
 </dl>
 </div>
 
@@ -920,11 +921,11 @@ the search could eventually hit an existing page. Depending on the scope,
   <dt>spread</dt>
     <dd>if the current page belongs to the same spread as the page with the
       specified offset (had it existed), start the search on the first existing
-      page in the search direction, otherwise return the emtpy string</dd>
+      page in the search direction, otherwise return the empty string</dd>
   <dt>sheet</dt>
     <dd>if the current page belongs to the same sheet as the page with the
       specified offset (had it existed), start the search on the first existing
-      page in the search direction, otherwise return the emtpy string</dd>
+      page in the search direction, otherwise return the empty string</dd>
   <dt>sequence</dt>
     <dd>start the search on the first existing page in the search direction</dd>
   <dt>volume</dt>
@@ -1077,7 +1078,7 @@ should be excluded entirely.</p>
   <dt>Usage</dt>
     <dd>before, after, sequence, dynamic-sequence, on-collection-start,
       on-page-start, on-page-end, on-collection-end, on-toc-start,
-      on-volume-start, on-volume-end, on-toc-end, item, td</dd>
+      on-volume-start, on-volume-end, on-toc-end, item, td, block</dd>
   <dt>General Attributes</dt>
   <dd><p>This element supports the <a href="#block-atts">Block</a>, <a href="#margin-atts">Margin</a>
     and <a href="#padding-atts">Padding</a> attributes groups.</p>
@@ -1191,7 +1192,7 @@ information.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>Emtpy.</dd>
+    <dd>Empty.</dd>
 </dl>
 </div>
 
@@ -1542,9 +1543,10 @@ table spans.</p>
 
 <p>The table-of-contents element defines the entries in a table of contents.
 Note that this element specifies formatting of data in a table of contents, it
-does not by it self specify that a table of contents should be inserted. It is
-required that the order of the toc-entries is consistent with the blocks it
-references.</p>
+does not by it self specify that a table of contents should be inserted.</p>
+
+<ins datetime="20191202T11:00:00">The table of contents is a hierarchy of toc-block
+elements with toc-entry elements as inline content.</ins>
 
 <div class="sidebar markup">
 <dl>
@@ -1557,30 +1559,49 @@ references.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>toc-entry [1 or more]</dd>
+    <dd>toc-block [1 or more]</dd>
+</dl>
+</div>
+
+<h4 id="L735" class="include">toc-block</h4>
+
+<p>The toc-block element defines a block of entries that can be used within a
+table of contents. A toc-block will only be rendered if it has at least one
+descendant toc-entry that is rendered.</p>
+
+<div class="sidebar markup">
+<dl>
+  <dt>Usage</dt>
+    <dd>table-of-contents, toc-block</dd>
+  <dt>Attributes</dt>
+  <dd><p>This element has the same attributes as the <a href="#L1023">block</a> element.</p>
+    </dd>
+  <dt>Content Model</dt>
+    <dd>toc-entry, toc-block [0 or more]</dd>
 </dl>
 </div>
 
 <h4 id="L1105" class="include">toc-entry</h4>
 
-<p>The toc-entry element defines an entry in a table of contents.</p>
+<p>The toc-entry element defines an entry in a table of contents. It is a
+conditional container of content. In a volume-ranged toc-sequence, the content
+will only be rendered if the block the toc-entry refers to starts in the current
+volume. In a document-ranged toc-sequence, the content will always be rendered.</p>
+
+<ins datetime="20191202T11:00:00">The toc-entry element has only inline content.</ins>
 
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>table-of-contents</dd>
+    <dd>toc-block</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>ref-id [required]</dt>
           <dd>The id of the block this entry is connected with.</dd>
       </dl>
-      <p>This element supports the <a href="#block-atts">Block</a>, <a href="#margin-atts">Margin</a>
-        and <a href="#padding-atts">Padding</a> attributes groups.</p>
-      <p>This element supports the <a href="#borders">Borders</a> attribute
-      group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, toc-entry, page-number, span,
+    <dd>text(), leader, marker, br, evaluate, page-number, span,
       style [0 or more]</dd>
 </dl>
 </div>
