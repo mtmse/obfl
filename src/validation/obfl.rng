@@ -811,10 +811,7 @@
     </element>
   </define>
   <define name="attlist-toc-block" combine="interleave">
-    <ref name="border-atts"/>
-    <ref name="margin-atts"/>
-    <ref name="padding-atts"/>
-    <ref name="block-atts"/>
+    <ref name="blockAtts"/>
   </define>
   <define name="toc-entry">
     <element name="toc-entry">
