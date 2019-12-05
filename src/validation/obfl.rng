@@ -828,7 +828,6 @@
     <attribute name="ref-id">
       <data type="IDREF"/>
     </attribute>
-    <ref name="blockAtts"/>
   </define>
   <define name="volume-template">
     <element name="volume-template">
