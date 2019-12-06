@@ -805,6 +805,7 @@
       <zeroOrMore>
         <choice>
           <ref name="toc-entry"/>
+          <ref name="toc-entry-on-resumed"/>
           <ref name="toc-block"/>
         </choice>
       </zeroOrMore>
@@ -824,6 +825,21 @@
   <define name="attlist-toc-entry" combine="interleave">
     <attribute name="ref-id">
       <data type="IDREF"/>
+    </attribute>
+  </define>
+  <define name="toc-entry-on-resumed">
+    <element name="toc-entry-on-resumed">
+      <ref name="attlist-toc-entry-on-resumed"/>
+      <zeroOrMore>
+        <ref name="blockContents"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="attlist-toc-entry-on-resumed" combine="interleave">
+    <attribute name="id-range">
+        <data type="string">
+            <param name="pattern">\[(\w|_)+,(\w|_)*((\w|_)\]|\))</param>
+        </data>
     </attribute>
   </define>
   <define name="volume-template">
@@ -979,6 +995,8 @@
       <choice>
         <value>document</value>
         <value>volume</value>
+        <value>document-resumed</value>
+        <value>volume-resumed</value>
       </choice>
     </attribute>
     <ref name="sequenceAtts"/>

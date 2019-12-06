@@ -1567,7 +1567,7 @@ elements with toc-entry elements as inline content.</ins>
 
 <p>The toc-block element defines a block of entries that can be used within a
 table of contents. A toc-block will only be rendered if it has at least one
-descendant toc-entry that is rendered.</p>
+descendant TOC entry that is rendered.</p>
 
 <div class="sidebar markup">
 <dl>
@@ -1577,7 +1577,7 @@ descendant toc-entry that is rendered.</p>
   <dd><p>This element has the same attributes as the <a href="#L1023">block</a> element.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>toc-entry, toc-block [0 or more]</dd>
+    <dd>toc-entry, toc-entry-on-resumed [0 or more]</dd>
 </dl>
 </div>
 
@@ -1598,6 +1598,46 @@ volume. In a document-ranged toc-sequence, the content will always be rendered.<
     <dd><dl>
         <dt>ref-id [required]</dt>
           <dd>The id of the block this entry is connected with.</dd>
+      </dl>
+    </dd>
+  <dt>Content Model</dt>
+    <dd>text(), leader, marker, br, evaluate, page-number, span,
+      style [0 or more]</dd>
+</dl>
+</div>
+
+<h4 id="L1105" class="include">toc-entry-on-resumed</h4>
+
+<p>The toc-entry-on-resumed element defines an entry in a table of contents. It is a
+conditional container of content. Its contents will be rendered for every volume break
+that occurs within a part (a range) of the document, and only in a toc-sequence with a
+volume-resumed or document-resumed range.
+Thus, in a volume-resumed toc-sequence, the contents may be rendered at most once.
+In a document-resumed toc-sequence, the contents may be rendered more than once. 
+The range consists of two block ids (the latter is optional) in a notation similar to
+<a href="https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402">Maven
+version ranges</a> that refer to the start of a block.</p>
+
+<div class="sidebar markup">
+<dl>
+  <dt>Usage</dt>
+    <dd>toc-block</dd>
+  <dt>Attributes</dt>
+    <dd><dl>
+        <dt>id-range [required]</dt>
+          <dd>The id range of the blocks this entry is connected with.</dd>
+          <dd>Syntax: '[' + ref-id; comma; ref-id + ']' or optional ref-id + ')'</dd>
+          <dd>Examples:</dd>
+          <dd><ul>
+             <li>"[ch_1,ch_2)" - from the start of block "ch_1" (inclusive)
+             until the start of block "ch_2" (exclusive). The contents will be
+             rendered if a volume break occurs in between, except when block
+             "ch_2" starts at the beginning of a volume.</li>
+             <li>"[ch1,ch2]" - as above, but the contents will be rendered even
+             when block "ch_2" starts at the beginning of a volume.</li>
+             <li>"[ch1,)" - from the start of block "ch_1" until the end of the
+             document.</li>
+          </ul></dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -1628,7 +1668,8 @@ data.</p>
         <dt>toc [required]</dt>
           <dd>A reference to a table-of-contents</dd>
         <dt>range [required]</dt>
-          <dd>A data selection property (document/volume)</dd>
+          <dd>A data selection property (document/volume/document-resumed/volume-resumed)</dd>
+          <dd>In a non-resumed range, the toc-entry-on-resumed TOC entries will be skipped.</dd>
         <dt>initial-page-number [optional]</dt>
           <dd>The inital page number for the toc-sequence</dd>
         <dt>page-number-counter [optional]</dt>
