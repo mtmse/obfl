@@ -1577,7 +1577,7 @@ descendant TOC entry that is rendered.</p>
   <dd><p>This element has the same attributes as the <a href="#L1023">block</a> element.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>toc-entry, toc-entry-on-resumed, toc-block [0 or more]</dd>
+    <dd>toc-block, toc-entry [0 or more], toc-entry-on-resumed [optional]</dd>
 </dl>
 </div>
 
@@ -1609,14 +1609,30 @@ volume. In a document-ranged toc-sequence, the content will always be rendered.<
 <h4 id="L1105" class="include">toc-entry-on-resumed</h4>
 
 <p>The toc-entry-on-resumed element defines an entry in a table of contents. It is a
-conditional container of content. Its contents will be rendered for every volume break
-that occurs within a part (a range) of the document, and only in a toc-sequence with a
-volume-resumed or document-resumed range.
-Thus, in a volume-resumed toc-sequence, the contents may be rendered at most once.
-In a document-resumed toc-sequence, the contents may be rendered more than once. 
-The range consists of two block ids (the latter is optional) in a notation similar to
+conditional container of content for volume breaks. The contents of at most one
+toc-entry-on-resumed per volume will be rendered at the start of the resumed volume's
+table of contents.
+This functionality is only available in toc-sequence with a volume-resumed or
+document-resumed range. When there are several volume breaks in the range of a
+toc-entry-on-resumed, its contents can be rendered more than once.
+The range consists of two block ids (the latter is optional) in a notation similar to  
 <a href="https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402">Maven
-version ranges</a> that refer to the start of a block.</p>
+version ranges</a> that refer to the start of a block. It is required that:
+<ul>
+<li>
+   Ranges become smaller when you descend in TOC tree. More formally, if there are
+   toc-entry-on-resumed elements A and B such that the toc-block of A
+   is an <a href="https://www.w3.org/TR/2017/REC-xpath-31-20170321/#prod-xpath31-ReverseAxis">ancestor</a>
+   of the toc-block of B, then every block in B's range must be in A's range.
+</li>
+<li>
+   The order of the toc-entry-on-resumed elements is consistent with the
+   blocks they reference.
+</li>
+</ul>
+When a volume break occurs, the toc-entry-on-resumed is selected that is deepest in the
+TOC tree. The above requirements guarantee that there is at most one. 
+</p>
 
 <div class="sidebar markup">
 <dl>

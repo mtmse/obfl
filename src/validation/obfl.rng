@@ -805,10 +805,12 @@
       <zeroOrMore>
         <choice>
           <ref name="toc-entry"/>
-          <ref name="toc-entry-on-resumed"/>
           <ref name="toc-block"/>
         </choice>
       </zeroOrMore>
+      <optional>
+          <ref name="toc-entry-on-resumed"/>
+      </optional>
     </element>
   </define>
   <define name="attlist-toc-block" combine="interleave">
