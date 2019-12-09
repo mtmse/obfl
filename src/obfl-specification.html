@@ -1567,7 +1567,7 @@ elements with toc-entry elements as inline content.</ins>
 
 <p>The toc-block element defines a block of entries that can be used within a
 table of contents. A toc-block will only be rendered if it has at least one
-descendant TOC entry that is rendered.</p>
+descendant toc-entry or toc-entry-on-resumed that is rendered.</p>
 
 <div class="sidebar markup">
 <dl>
@@ -1609,30 +1609,14 @@ volume. In a document-ranged toc-sequence, the content will always be rendered.<
 <h4 id="L1105" class="include">toc-entry-on-resumed</h4>
 
 <p>The toc-entry-on-resumed element defines an entry in a table of contents. It is a
-conditional container of content for volume breaks. The contents of at most one
-toc-entry-on-resumed per volume will be rendered at the start of the resumed volume's
-table of contents.
-This functionality is only available in toc-sequences with a volume-resumed or
-document-resumed range. When there are several volume breaks in the range of a
-toc-entry-on-resumed, its contents can be rendered more than once.
-The range consists of two block ids (the latter is optional) in a notation similar to  
-<a href="https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402">Maven
-version ranges</a> that refer to the start of a block. It is required that:
-<ul>
-<li>
-   Ranges become smaller when you descend in TOC tree. More formally, if there are
-   toc-entry-on-resumed elements A and B such that the toc-block of A
-   is an <a href="https://www.w3.org/TR/2017/REC-xpath-31-20170321/#prod-xpath31-ReverseAxis">ancestor</a>
-   of the toc-block of B, then every block in B's range must be in A's range.
-</li>
-<li>
-   The order of the toc-entry-on-resumed elements is consistent with the
-   blocks they reference.
-</li>
-</ul>
-When a volume break occurs, the toc-entry-on-resumed is selected that is deepest in the
-TOC tree. The above requirements guarantee that there is at most one. 
-</p>
+conditional container of content for volume breaks. If a volume break occurs within
+its range, then its contents will be rendered at the start of the resumed volume's
+table of contents. If there are several volume breaks in the range of a
+toc-entry-on-resumed, its contents will be rendered as many times.
+The range consists of two block ids (the latter is optional) that refer to the
+start of a block.</p>
+<p>This functionality is only available in toc-sequences with a volume-resumed or
+document-resumed range.</p>
 
 <div class="sidebar markup">
 <dl>
@@ -1640,17 +1624,16 @@ TOC tree. The above requirements guarantee that there is at most one.
     <dd>toc-block</dd>
   <dt>Attributes</dt>
     <dd><dl>
-        <dt>id-range [required]</dt>
-          <dd>The id range of the blocks this entry is connected with.</dd>
-          <dd>Syntax: '[' + ref-id; comma; ref-id + ']' or optional ref-id + ')'</dd>
+        <dt>range [required]</dt>
+          <dd>The range of the blocks this entry is connected with.</dd>
+          <dd>Syntax: '[' + block-id + ',' + ((block-id + ']') or (optional block-id + ')'))</dd>
           <dd>Examples:</dd>
           <dd><ul>
-             <li>"[ch_1,ch_2)" - from the start of block "ch_1" (inclusive)
-             until the start of block "ch_2" (exclusive). The contents will be
-             rendered if a volume break occurs in between, except when block
-             "ch_2" starts at the beginning of a volume.</li>
+             <li>"[ch_1,ch_2)" - the contents will be rendered if a volume break
+             occurs in between the start of the block with id "ch_1" and the start
+             of the block with id "ch_2".</li>
              <li>"[ch1,ch2]" - as above, but the contents will be rendered even
-             when block "ch_2" starts at the beginning of a volume.</li>
+             when the block with id "ch_2" starts at the beginning of a volume.</li>
              <li>"[ch1,)" - from the start of block "ch_1" until the end of the
              document.</li>
           </ul></dd>

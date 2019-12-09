@@ -838,9 +838,9 @@
     </element>
   </define>
   <define name="attlist-toc-entry-on-resumed" combine="interleave">
-    <attribute name="id-range">
+    <attribute name="range">
         <data type="string">
-            <param name="pattern">\[(\w|_)+,(\w|_)*((\w|_)\]|\))</param>
+            <param name="pattern">\[[^,\[\]\)]+,([^,\[\]\)]+\]|[^,\[\]\)]*\))</param>
         </data>
     </attribute>
   </define>
