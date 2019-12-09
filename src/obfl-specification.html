@@ -1610,11 +1610,10 @@ volume. In a document-ranged toc-sequence, the content will always be rendered.<
 
 <p>The toc-entry-on-resumed element defines an entry in a table of contents. It is a
 conditional container of content for volume breaks. If a volume break occurs within
-its range, then its contents will be rendered at the start of the resumed volume's
-table of contents. If there are several volume breaks in the range of a
-toc-entry-on-resumed, its contents will be rendered as many times.
-The range consists of two block ids (the latter is optional) that refer to the
-start of a block.</p>
+its range, then its contents will be rendered in the volume after the break.
+If there are several volume breaks within its range, its contents may be rendered
+more than once. The range consists of two block ids (the latter is optional) that
+refer to the start of a block.</p>
 <p>This functionality is only available in toc-sequences with a volume-resumed or
 document-resumed range.</p>
 
@@ -1634,8 +1633,8 @@ document-resumed range.</p>
              of the block with id "ch_2".</li>
              <li>"[ch1,ch2]" - as above, but the contents will be rendered even
              when the block with id "ch_2" starts at the beginning of a volume.</li>
-             <li>"[ch1,)" - from the start of block "ch_1" until the end of the
-             document.</li>
+             <li>"[ch1,)" - the contents will be rendered if a volume break occurs
+             after the start of block "ch_1".</li>
           </ul></dd>
       </dl>
     </dd>
