@@ -997,8 +997,6 @@
       <choice>
         <value>document</value>
         <value>volume</value>
-        <value>document-resumed</value>
-        <value>volume-resumed</value>
       </choice>
     </attribute>
     <ref name="sequenceAtts"/>
