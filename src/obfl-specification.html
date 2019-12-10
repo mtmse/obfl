@@ -1577,7 +1577,7 @@ descendant toc-entry or toc-entry-on-resumed that is rendered.</p>
   <dd><p>This element has the same attributes as the <a href="#L1023">block</a> element.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>toc-block, toc-entry [0 or more], toc-entry-on-resumed [optional]</dd>
+    <dd>toc-entry, toc-entry-on-resumed, toc-block [0 or more]</dd>
 </dl>
 </div>
 
@@ -1665,7 +1665,6 @@ data.</p>
           <dd>A reference to a table-of-contents</dd>
         <dt>range [required]</dt>
           <dd>A data selection property (document/volume)</dd>
-          <dd>In a non-resumed range, the toc-entry-on-resumed TOC entries will be skipped.</dd>
         <dt>initial-page-number [optional]</dt>
           <dd>The inital page number for the toc-sequence</dd>
         <dt>page-number-counter [optional]</dt>
