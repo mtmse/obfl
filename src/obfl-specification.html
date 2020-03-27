@@ -671,8 +671,8 @@ area.</p>
       group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>block, text(), leader, marker, br, evaluate, page-number, span, style
-      [0 or more]</dd>
+    <dd>block, text(), leader, marker, br, evaluate, page-number,
+      marker-reference, span, style [0 or more]</dd>
 </dl>
 </div>
 
@@ -693,8 +693,8 @@ area.</p>
       group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>block, text(), leader, marker, br, evaluate, page-number, span, style
-      [0 or more]</dd>
+    <dd>block, text(), leader, marker, br, evaluate, page-number,
+      marker-reference, span, style [0 or more]</dd>
 </dl>
 </div>
 
@@ -879,7 +879,8 @@ element. If no reference is found, the empty string is returned.</p>
 <div class="sidebar">
 <dl>
   <dt>Usage</dt>
-    <dd class="markup">field</dd>
+    <dd class="markup">before, after, field, toc-entry, toc-entry-on-resumed,
+    block, td, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>marker [required]</dt>
@@ -894,6 +895,8 @@ element. If no reference is found, the empty string is returned.</p>
           <dd>Default is 0</dd>
         <dt>text-style [optional]</dt>
           <dd class="">A text style, e.g. emphasis or strong</dd>
+          <dd class="markup note">This attribute is only available in the
+          context of a field element.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -1164,8 +1167,8 @@ should be excluded entirely.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, span, style, anchor,
-      block, table, xml-data [0 or more]</dd>
+    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+      span, style, anchor, block, table, xml-data [0 or more]</dd>
 </dl>
 </div>
 
@@ -1359,7 +1362,8 @@ emphasis or strong.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), style, marker, br, anchor, evaluate, page-number [0 or more]</dd>
+    <dd>text(), style, marker, br, anchor, evaluate, page-number,
+    marker-reference [0 or more]</dd>
 </dl>
 </div>
 
@@ -1533,7 +1537,8 @@ table spans.</p>
         and <a href="#padding-atts">Padding</a> attributes groups.</p>
     </dd>
   <dt>Content Model</dt>
-  <dd>text(), leader, marker, br, evaluate, page-number, span, style, anchor, block, xml-data [0 or more]</dd>
+  <dd>text(), leader, marker, br, evaluate, page-number, marker-reference, span,
+  style, anchor, block, xml-data [0 or more]</dd>
 </dl>
 </div>
 
@@ -1601,8 +1606,8 @@ volume. In a document-ranged toc-sequence, the content will always be rendered.<
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, span,
-      style [0 or more]</dd>
+    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+      span, style [0 or more]</dd>
 </dl>
 </div>
 
@@ -1637,8 +1642,8 @@ more than once. The range consists of two block ids (the latter is optional).</p
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, span,
-      style [0 or more]</dd>
+    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+      span, style [0 or more]</dd>
 </dl>
 </div>
 
@@ -1944,7 +1949,8 @@ volume's body of pages.</p>
     <dt>Usage</dt>
     <dd>volume-transition</dd>
     <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, span, style [0 or more]</dd>
+    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+    span, style [0 or more]</dd>
   </dl>
 </div>
   
@@ -1959,7 +1965,8 @@ volume's body of pages.</p>
       <dt>Usage</dt>
       <dd>volume-transition</dd>
       <dt>Content Model</dt>
-      <dd>text(), leader, marker, br, evaluate, page-number, span, style [0 or more]</dd>
+      <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+      span, style [0 or more]</dd>
     </dl>
   </div>
 
@@ -2066,8 +2073,8 @@ that nesting of items is not allowed.</p>
       group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>block, text(), leader, marker, br, evaluate, page-number, span, style
-      [0 or more]</dd>
+    <dd>block, text(), leader, marker, br, evaluate, page-number,
+      marker-reference, span, style [0 or more]</dd>
 </dl>
 </div>
 

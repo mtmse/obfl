@@ -8,6 +8,7 @@
       <ref name="br"/>
       <ref name="evaluate"/>
       <ref name="page-number"/>
+      <ref name="marker-reference"/>
       <ref name="span"/>
       <ref name="style"/>
     </choice>
@@ -665,7 +666,7 @@
       <ref name="attlist-field"/>
       <zeroOrMore>
         <choice>
-          <ref name="marker-reference"/>
+          <ref name="marker-reference-in-field"/>
           <ref name="string"/>
           <ref name="current-page"/>
           <ref name="evaluate-in-field"/>
@@ -719,6 +720,12 @@
       <empty/>
     </element>
   </define>
+  <define name="marker-reference-in-field">
+    <element name="marker-reference">
+      <ref name="attlist-marker-reference-in-field"/>
+      <empty/>
+    </element>
+  </define>
   <define name="attlist-marker-reference" combine="interleave">
     <attribute name="marker">
       <data type="NMTOKEN"/>
@@ -748,6 +755,9 @@
          <data type="short"/>
       </attribute>
     </optional>
+  </define>
+  <define name="attlist-marker-reference-in-field" combine="interleave">
+    <ref name="attlist-marker-reference"/>
     <optional>
       <attribute name="text-style">
         <data type="NMTOKEN"/>
