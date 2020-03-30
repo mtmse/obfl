@@ -1183,7 +1183,8 @@ information.</p>
 <div class="sidebar">
 <dl>
   <dt>Usage</dt>
-    <dd class="markup">before, after, field, toc-entry, block, item, style</dd>
+    <dd class="markup">before, after, field, toc-entry, toc-entry-on-resumed,
+    block, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>expression [required]</dt>
@@ -1213,7 +1214,7 @@ the current row.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry, toc-entry-on-resumed, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>align [optional]</dt>
@@ -1242,7 +1243,7 @@ refered to in headers and footers.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry, toc-entry-on-resumed, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>class [required]</dt>
@@ -1285,7 +1286,7 @@ paragraph).</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry, toc-entry-on-resumed, block, item</dd>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
 </dl>
@@ -1299,7 +1300,7 @@ element.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item, style</dd>
+    <dd>before, after, toc-entry, toc-entry-on-resumed, block, item, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>ref-id [required]</dt>
@@ -1322,7 +1323,7 @@ language is different from the surrounding text.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item</dd>
+    <dd>before, after, toc-entry, toc-entry-on-resumed, block, item</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>xml:lang [optional]</dt>
@@ -1354,7 +1355,7 @@ emphasis or strong.</p>
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
-    <dd>before, after, toc-entry, block, item, span, style</dd>
+    <dd>before, after, toc-entry, toc-entry-on-resumed, block, item, span, style</dd>
   <dt>Attributes</dt>
     <dd><dl>
         <dt>name [required]</dt>
@@ -2059,8 +2060,7 @@ positioned elements, such as footnotes.</p>
 <h4 id="L1210" class="include">item</h4>
 
 <p>Defines the formatting of an item that should be inserted somewhere in the
-flow. The behavior of this element is similar to the toc-entry element, except
-that nesting of items is not allowed.</p>
+flow. The behavior of this element is similar to the toc-entry element.</p>
 
 <div class="sidebar markup">
 <dl>
