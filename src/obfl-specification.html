@@ -1823,6 +1823,16 @@ toc-sequence.</p>
             number. It can be used in an expression, e.g. <code>(= $volume
             1)</code>.</dd>
           <dd>Default is 'volume'.</dd>
+        <dt>started-volume-first-content-page-number-variable [optional]</dt>
+          <dd>Definition of the name of the variable holding the first page
+            number of the content of the started volume. It can be used in an
+            expression, e.g.
+            <code>$started-volume-first-content-page</code>.</dd>
+          <dd class="markup note">This is not necessary the first page number
+            of the content of the <em>current</em> volume. When used in an
+            entry of a table of contents, the volume the entry refers to is
+            used.</dd>
+          <dd>Default is 'started-volume-first-content-page'.</dd>
         <dt>use-when [optional]</dt>
           <dd>A condition for applying the volume-template, expressed using the
             <a href="obfl-evaluation-language.html">OBFL Evaluation
