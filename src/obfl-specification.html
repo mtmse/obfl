@@ -1642,6 +1642,15 @@ more than once. The range consists of two block ids (the latter is optional).</p
           </ul></dd>
       </dl>
     </dd>
+  <dt>Variables</dt>
+    <dd><dl>
+        <dt>started-volume-first-content-page</dt>
+          <dd>The variable holding the first page number of the content of the
+            started volume. It can be used in an evaluate expression, e.g.
+            <code>&lt;evaluate
+            expression="$started-volume-first-content-page"&gt;</code>.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
       span, style [0 or more]</dd>
@@ -1823,16 +1832,6 @@ toc-sequence.</p>
             number. It can be used in an expression, e.g. <code>(= $volume
             1)</code>.</dd>
           <dd>Default is 'volume'.</dd>
-        <dt>started-volume-first-content-page-number-variable [optional]</dt>
-          <dd>Definition of the name of the variable holding the first page
-            number of the content of the started volume. It can be used in an
-            expression, e.g.
-            <code>$started-volume-first-content-page</code>.</dd>
-          <dd class="markup note">This is not necessary the first page number
-            of the content of the <em>current</em> volume. When used in an
-            entry of a table of contents, the volume the entry refers to is
-            used.</dd>
-          <dd>Default is 'started-volume-first-content-page'.</dd>
         <dt>use-when [optional]</dt>
           <dd>A condition for applying the volume-template, expressed using the
             <a href="obfl-evaluation-language.html">OBFL Evaluation

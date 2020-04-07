@@ -873,9 +873,6 @@
     <optional>
       <attribute name="volume-count-variable"/>
     </optional>
-    <optional>
-      <attribute name="started-volume-first-content-page-number-variable"/>
-    </optional>
     <attribute name="sheets-in-volume-max"/>
   </define>
   <define name="pre-content">
