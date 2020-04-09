@@ -39,14 +39,14 @@
     </optional>
     <optional>
       <attribute name="translate">
-		<choice>
-	        <value></value>
-	        <value>pre-translated</value>
+        <choice>
+          <value></value>
+          <value>pre-translated</value>
           <value>grade0</value>
-	        <value>grade1</value>
-	        <value>grade2</value>
-	        <value>grade3</value>
-	    </choice>
+          <value>grade1</value>
+          <value>grade2</value>
+          <value>grade3</value>
+        </choice>
       </attribute>
     </optional>
   </define>
@@ -290,16 +290,16 @@
         </choice>
       </attribute>
     </optional>
-  	<optional>
-  		<attribute name="list-style">
-  			<data type="string"/>
-  		</attribute>
-  	</optional>
-  	<optional>
-  		<attribute name="list-item-label">
-  			<data type="string"/>
-  		</attribute>
-  	</optional>
+    <optional>
+      <attribute name="list-style">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="list-item-label">
+        <data type="string"/>
+      </attribute>
+    </optional>
   </define>
   <define name="block-atts">
     <ref name="list-atts"/>
@@ -468,7 +468,7 @@
         <ref name="layout-master"/>
       </oneOrMore>
       <zeroOrMore>
-      	<ref name="file-reference"/>
+        <ref name="file-reference"/>
       </zeroOrMore>
       <zeroOrMore>
         <ref name="xml-processor"/>
@@ -514,14 +514,14 @@
     </optional>
     <optional>
       <attribute name="translate">
-      	<choice>
-	        <value></value>
-	        <value>pre-translated</value>
-      	  <value>grade0</value>
-	        <value>grade1</value>
-	        <value>grade2</value>
-	        <value>grade3</value>
-	    </choice>
+        <choice>
+          <value></value>
+          <value>pre-translated</value>
+          <value>grade0</value>
+          <value>grade1</value>
+          <value>grade2</value>
+          <value>grade3</value>
+        </choice>
       </attribute>
     </optional>
   </define>
@@ -1457,14 +1457,14 @@
     </element>
   </define>
   <!--
-    align, 	alignment of the text following the leader.
-    			The leader can be aligned to the left, center or
-    			right of the following text segment. Left is
-    			default.
-    pattern, 	fill pattern to use up to the leader position, " "
-    			is default.
+    align,    alignment of the text following the leader.
+              The leader can be aligned to the left, center or
+              right of the following text segment. Left is
+              default.
+    pattern,  fill pattern to use up to the leader position, " "
+              is default.
     position, position of the leader within the row. Can be
-    			relative (percent) or absolute (column).
+              relative (percent) or absolute (column).
   -->
   <define name="attlist-leader" combine="interleave">
     <optional>
@@ -1612,10 +1612,10 @@
   <define name="xml-data">
     <element name="xml-data">
       <ref name="attlist-xml-data"/>
-    	<choice>
-    		<ref name="any_element"/>
-    		<ref name="any_obfl"/>
-    	</choice>
+      <choice>
+        <ref name="any_element"/>
+        <ref name="any_obfl"/>
+      </choice>
     </element>
   </define>
   <define name="attlist-xml-data" combine="interleave">
@@ -1642,7 +1642,7 @@
     <element name="rendering-scenario">
       <ref name="attlist-rendering-scenario"/>
       <zeroOrMore>
-      	<ref name="parameter"/>
+        <ref name="parameter"/>
       </zeroOrMore>
     </element>
   </define>
@@ -1660,30 +1660,30 @@
     </optional>
   </define>
   <define name="parameter">
-  	<element name="parameter">
-  		<ref name="attlist-parameter"/>
-  	</element>
+    <element name="parameter">
+      <ref name="attlist-parameter"/>
+    </element>
   </define>
   <define name="attlist-parameter">
-  	<attribute name="name">
-  		<data type="string"/>
-  	</attribute>
-  	<attribute name="value">
-  		<data type="string"/>
-  	</attribute>
+    <attribute name="name">
+      <data type="string"/>
+    </attribute>
+    <attribute name="value">
+      <data type="string"/>
+    </attribute>
   </define>
   <define name="file-reference">
-  	<element name="file-reference">
-  		<ref name="attlist-file-reference"/>
-  		<choice>
-  			<ref name="any_content"/>
-  		</choice>
-  	</element>
+    <element name="file-reference">
+      <ref name="attlist-file-reference"/>
+      <choice>
+        <ref name="any_content"/>
+      </choice>
+    </element>
   </define>
   <define name="attlist-file-reference">
-		<attribute name="uri">
-			<data type="string"/>
-		</attribute>
+    <attribute name="uri">
+      <data type="string"/>
+    </attribute>
   </define>
   <define name="xml-processor">
     <element name="xml-processor">
