@@ -782,7 +782,7 @@
     </element>
   </define>
   <define name="attlist-evaluate-in-field" combine="interleave">
-    <attribute name="expression"/>
+    <ref name="attlist-evaluate"/>
     <optional>
       <attribute name="text-style">
         <data type="NMTOKEN"/>
