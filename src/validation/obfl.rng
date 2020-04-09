@@ -702,7 +702,9 @@
     </element>
   </define>
   <define name="attlist-current-page" combine="interleave">
-    <ref name="attlist-number-format"/>
+    <optional>
+      <ref name="number-format-attribute"/>  
+    </optional>
     <optional>
       <attribute name="text-style">
         <data type="NMTOKEN"/>
@@ -780,11 +782,14 @@
     </element>
   </define>
   <define name="attlist-evaluate-in-field" combine="interleave">
-    <ref name="attlist-evaluate"/>
+    <attribute name="expression"/>
     <optional>
       <attribute name="text-style">
         <data type="NMTOKEN"/>
       </attribute>
+    </optional>
+    <optional>
+      <ref name="number-format-attribute"/>
     </optional>
   </define>
   <define name="evaluate">
@@ -795,7 +800,9 @@
   </define>
   <define name="attlist-evaluate" combine="interleave">
     <attribute name="expression"/>
-    <ref name="attlist-number-format"/>
+    <optional>
+      <ref name="number-format-attribute"/>
+    </optional>
   </define>
   <define name="table-of-contents">
     <element name="table-of-contents">
@@ -1506,21 +1513,21 @@
     <attribute name="ref-id">
       <data type="IDREF"/>
     </attribute>
-    <ref name="attlist-number-format"/>
-  </define>
-  <define name="attlist-number-format" combine="interleave">
     <optional>
-      <attribute name="number-format">
-        <choice>
-          <value>default</value>
-          <value>roman</value>
-          <value>upper-roman</value>
-          <value>lower-roman</value>
-          <value>upper-alpha</value>
-          <value>lower-alpha</value>
-        </choice>
-      </attribute>
+      <ref name="number-format-attribute"/>
     </optional>
+  </define>
+  <define name="number-format-attribute">
+    <attribute name="number-format">
+      <choice>
+        <value>default</value>
+        <value>roman</value>
+        <value>upper-roman</value>
+        <value>lower-roman</value>
+        <value>upper-alpha</value>
+        <value>lower-alpha</value>
+      </choice>
+    </attribute>
   </define>
   <!-- Tabular data -->
   <define name="table">
