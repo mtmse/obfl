@@ -791,7 +791,7 @@
     </element>
   </define>
   <define name="attlist-evaluate-in-field" combine="interleave">
-    <attribute name="expression"/>
+    <ref name="attlist-evaluate"/>
     <optional>
       <attribute name="text-style">
         <data type="NMTOKEN"/>
@@ -800,9 +800,13 @@
   </define>
   <define name="evaluate">
     <element name="evaluate">
-      <attribute name="expression"/>
+      <ref name="attlist-evaluate"/>
       <empty/>
     </element>
+  </define>
+  <define name="attlist-evaluate" combine="interleave">
+    <attribute name="expression"/>
+    <ref name="attlist-number-format"/>
   </define>
   <define name="table-of-contents">
     <element name="table-of-contents">
@@ -1513,6 +1517,9 @@
     <attribute name="ref-id">
       <data type="IDREF"/>
     </attribute>
+    <ref name="attlist-number-format"/>
+  </define>
+  <define name="attlist-number-format" combine="interleave">
     <optional>
       <attribute name="number-format">
         <choice>
