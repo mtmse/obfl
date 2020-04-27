@@ -788,9 +788,6 @@
         <data type="NMTOKEN"/>
       </attribute>
     </optional>
-    <optional>
-      <ref name="number-format-attribute"/>
-    </optional>
   </define>
   <define name="evaluate">
     <element name="evaluate">
@@ -800,9 +797,6 @@
   </define>
   <define name="attlist-evaluate" combine="interleave">
     <attribute name="expression"/>
-    <optional>
-      <ref name="number-format-attribute"/>
-    </optional>
   </define>
   <define name="table-of-contents">
     <element name="table-of-contents">
