@@ -8,6 +8,7 @@
       <ref name="br"/>
       <ref name="evaluate"/>
       <ref name="page-number"/>
+      <ref name="metadata"/>
       <ref name="marker-reference"/>
       <ref name="span"/>
       <ref name="style"/>
@@ -1502,6 +1503,16 @@
   </define>
   <define name="attlist-br" combine="interleave">
     <empty/>
+  </define>
+  <define name="metadata">
+    <element name="metadata">
+      <ref name="attlist-metadata"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="attlist-metadata" combine="interleave">
+    <attribute name="*">
+    </attribute>
   </define>
   <define name="page-number">
     <element name="page-number">

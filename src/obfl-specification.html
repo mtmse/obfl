@@ -6,7 +6,7 @@
   <meta name="dc:identifier" content="" />
   <meta name="dc:Title" content="OBFL Specification" />
   <meta name="dc:Language" content="en" />
-  <meta name="dc:Date" content="2019-12-02" />
+  <meta name="dc:Date" content="2020-04-29" />
   <link rel="stylesheet" href="styles/w3c-unofficial.css" type="text/css" />
   <link rel="stylesheet" href="styles/style.css" type="text/css" />
 </head>
@@ -1167,7 +1167,7 @@ should be excluded entirely.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+    <dd>text(), leader, marker, br, evaluate, page-number, metadata, marker-reference,
       span, style, anchor, block, table, xml-data [0 or more]</dd>
 </dl>
 </div>
@@ -1313,6 +1313,29 @@ element.</p>
         <dt>number-format [optional]</dt>
           <dd>One of 'default', 'roman', 'upper-roman', 'lower-roman',
             'upper-alpha', 'lower-alpha'.</dd>
+      </dl>
+    </dd>
+  <dt>Content Model</dt>
+    <dd>Empty.</dd>
+</dl>
+</div>
+
+<h4 id="L840" class="include">metadata</h4>
+
+<ins datetime="20200429T15:00:00">The metadata attribute can be added to any block in order
+  to send information through the dotify framework from obfl to pef.</ins>
+
+<p>The metadata element is used to add information.</p>
+
+<div class="sidebar markup">
+<dl>
+  <dt>Usage</dt>
+    <dd>block</dd>
+  <dt>Attributes</dt>
+    <dd>
+      <dl>
+        <dt>any attribute [optional]</dt>
+          <dd></dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
