@@ -8,7 +8,7 @@
       <ref name="br"/>
       <ref name="evaluate"/>
       <ref name="page-number"/>
-      <ref name="metadata"/>
+      <ref name="blockmeta"/>
       <ref name="marker-reference"/>
       <ref name="span"/>
       <ref name="style"/>
