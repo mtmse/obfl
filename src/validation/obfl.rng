@@ -1504,16 +1504,20 @@
   <define name="attlist-br" combine="interleave">
     <empty/>
   </define>
-  <define name="metadata">
-    <element name="metadata">
-      <ref name="attlist-metadata"/>
+  <define name="blockmeta">
+    <element name="blockmeta">
+      <ref name="attlist-blockmeta"/>
       <empty/>
     </element>
   </define>
-  <define name="attlist-metadata" combine="interleave">
+  <define name="attlist-blockmeta" combine="interleave">
     <zeroOrMore>
       <attribute>
-        <anyName></anyName>
+        <anyName>
+            <except>
+              <nsName ns="http://www.daisy.org/ns/2011/obfl"/>
+            </except>
+        </anyName>
       </attribute>
     </zeroOrMore>
   </define>
