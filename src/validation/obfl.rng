@@ -1515,6 +1515,7 @@
       <attribute>
         <anyName>
             <except>
+              <nsName ns=""/>
               <nsName ns="http://www.daisy.org/ns/2011/obfl"/>
             </except>
         </anyName>
