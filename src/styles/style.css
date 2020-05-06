@@ -1,41 +1,41 @@
 div.sidebar {
-	/*border: 1px solid gray;*/
-	border-left: 0.5em solid #8ccbf2; 
-	background-color: #def; 
-	margin-top: 1em;
-	margin-bottom: 1.5em; 
-	padding-left: 1em;
-	padding-right: 1em;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
+    /*border: 1px solid gray;*/
+    border-left: 0.5em solid #8ccbf2;
+    background-color: #def;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 .automated {
-	color: green;
-	text-decoration: none;
-	border-bottom: 1px dotted;
+    color: green;
+    text-decoration: none;
+    border-bottom: 1px dotted;
 }
 .dashed-box {
-	border-style: dashed;
-	border-width: 1px;
-	border-color: #aaa;
-	padding: 0.25em;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #aaa;
+    padding: 0.25em;
 }
 .solid-box {
-	border-style: solid;
-	border-width: 6px;
+    border-style: solid;
+    border-width: 6px;
 }
 table.box-model {
-	font-size: 100%;
-	margin: 0;
-	padding: 0;
-	border-collapse: collapse;
-	border-style: none;
-	border-width: 0px;
-	text-align: center;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-style: none;
+    border-width: 0px;
+    text-align: center;
 }
 .box-model tr td {
-	border-style: none;
-	padding: 0.5em;
+    border-style: none;
+    padding: 0.5em;
 }
 .issue, .note, .example {
     padding: .5em;
@@ -61,19 +61,19 @@ div.issue, div.note, div.example {
   background-color: #fcfaee;
 }
 table.page-model {
-	font-size: 100%;
-	margin: 0;
-	padding: 0;
-	border-collapse: collapse;
-	border-style: none;
-	border-width: 0px;
-	text-align: center;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-style: none;
+    border-width: 0px;
+    text-align: center;
 }
 .page-model tr td {
-	border-style: solid;
-	border-width: 2px;
-	padding: 0.5em;
-	vertical-align: bottom;
+    border-style: solid;
+    border-width: 2px;
+    padding: 0.5em;
+    vertical-align: bottom;
 }
 
 .rotate {
@@ -95,5 +95,5 @@ table.page-model {
 }
 
 td.intersection {
-	background-color: pink;
+    background-color: pink;
 }

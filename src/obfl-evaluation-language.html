@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="Content-Type"
-  content="application/xhtml+xml; charset=UTF-8" />
-  <title>OBFL Evaluation Language</title>
-  <meta name="dc:identifier" content="" />
-  <meta name="dc:Title" content="OBFL Evaluation Language" />
-  <meta name="dc:Language" content="en" />
-  <meta name="dc:Date" content="2016-03-16" />
-  <link rel="stylesheet" href="styles/w3c-unofficial.css" type="text/css" />
-  <link rel="stylesheet" href="styles/style.css" type="text/css" />
+    <meta http-equiv="Content-Type"
+          content="application/xhtml+xml; charset=UTF-8"/>
+    <title>OBFL Evaluation Language</title>
+    <meta name="dc:identifier" content=""/>
+    <meta name="dc:Title" content="OBFL Evaluation Language"/>
+    <meta name="dc:Language" content="en"/>
+    <meta name="dc:Date" content="2016-03-16"/>
+    <link rel="stylesheet" href="styles/w3c-unofficial.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/style.css" type="text/css"/>
 </head>
 
 <body>
@@ -18,20 +18,21 @@
 <p>Working draft, revised <?source-date?> (UTC+01:00)</p>
 <p>Published <?timestamp?></p>
 <dl>
-  <dt>This version:</dt>
+    <dt>This version:</dt>
     <dd><a
-      href="https://braillespecs.github.io/obfl/obfl-specification.html">https://braillespecs.github.io/obfl/obfl-evaluation-language.html</a></dd>
-  <dt>Author:</dt>
+            href="https://braillespecs.github.io/obfl/obfl-specification.html">https://braillespecs.github.io/obfl/obfl-evaluation-language.html</a>
+    </dd>
+    <dt>Author:</dt>
     <dd>Joel Håkansson</dd>
-  <!--
-              <dt>Contributors:</dt>
-              <dd></dd>-->
+    <!--
+                <dt>Contributors:</dt>
+                <dd></dd>-->
 </dl>
 
 <h2 id="L62">Abstract</h2>
 
 <p>This document specifies the OBFL Evaluation Language, a interpreted
-evaluation language.</p>
+    evaluation language.</p>
 
 <h2 id="L71">Status of this Document</h2>
 
@@ -43,21 +44,21 @@ evaluation language.</p>
 
 <h2 id="L255">Introduction</h2>
 
-<p><strong>This section is informative.</strong> </p>
+<p><strong>This section is informative.</strong></p>
 
 <p>An evaluation language was needed for the formatting process defined by <a
-href="obfl-specification.html">OBFL</a>. The reason being that some decisions
-have to be made based on the result of the formatting, such as the volume or
-page number of an element.</p>
+        href="obfl-specification.html">OBFL</a>. The reason being that some decisions
+    have to be made based on the result of the formatting, such as the volume or
+    page number of an element.</p>
 
 <p>An attempt was made at finding an existing language. However, none seemed to
-suit the specific needs in this context. Either the proposed language contained
-a vast number of operations that would carry an unclear meaning (such as XPath)
-or it was too powerful for the situation (full-fledged scripting languages).
-Others were simply too obscure to be tied to an open standard.</p>
+    suit the specific needs in this context. Either the proposed language contained
+    a vast number of operations that would carry an unclear meaning (such as XPath)
+    or it was too powerful for the situation (full-fledged scripting languages).
+    Others were simply too obscure to be tied to an open standard.</p>
 
 <p>What was needed was simple logical tests and a conditional construct. Hence,
-the OBFL Evaluation Language was created.</p>
+    the OBFL Evaluation Language was created.</p>
 
 <h3 id="L261">What is OBFL Evaluation Language?</h3>
 
@@ -65,24 +66,24 @@ the OBFL Evaluation Language was created.</p>
 
 <h2 id="L287">Definitions</h2>
 
-<p><strong>This section is normative.</strong> </p>
+<p><strong>This section is normative.</strong></p>
 
 <p>The following terms and definitions are used within this document.</p>
 
 <h3 id="L295">Terminology</h3>
 
 <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", SHOULD",
-"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-interpreted as described in <a href="#ref-rfc2119">RFC 2119</a>.</p>
+    "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+    interpreted as described in <a href="#ref-rfc2119">RFC 2119</a>.</p>
 
 <h3 id="L449">Relationship to Other Specifications</h3>
 
 <p>This specification is based on the specific versions of the standards and
-specifications referenced herein, which are used as defined except as noted in
-this document. Any refinement or replacement of a referenced specification by a
-newer or different version is not directly applicable to this standard.
-Conformance to this standard is based on the versions of the standards and
-specifications in effect at the time of writing.</p>
+    specifications referenced herein, which are used as defined except as noted in
+    this document. Any refinement or replacement of a referenced specification by a
+    newer or different version is not directly applicable to this standard.
+    Conformance to this standard is based on the versions of the standards and
+    specifications in effect at the time of writing.</p>
 
 <h2 id="L520">Definition of OBFL Evaluation Language</h2>
 
@@ -91,169 +92,181 @@ specifications in effect at the time of writing.</p>
 <h3 id="L195">Syntax</h3>
 
 <p>The OBFL Evaluation Language uses prefix notation, i.e. the operator comes
-first and the arguments follow.</p>
+    first and the arguments follow.</p>
 
 <h4 id="L199">Parenthesis</h4>
 
 <p>Each operation and its arguments must be surrounded with parenthesis,
-including the outermost expression.</p>
+    including the outermost expression.</p>
 
 <h4 id="L203">Whitespace</h4>
 
 <p>Arguments are separated by whitespace. An argument can contain whitespace if
-it is surrounded by quotes.</p>
+    it is surrounded by quotes.</p>
 
 <h4 id="L14889">Variables</h4>
 
 <p>Variables can be available in a specific evaluation context. Typically,
-these variables and their values are supplied to the evaluation engine at the
-time of the evaluation of the expression that uses them. A variable be accessed
-by its name prefixed by a $. For example, given that a variable with the name
-'volume' exists in the evaluation context, it can be used in an expression such
-as <code>(= $volume 1)</code>.</p>
+    these variables and their values are supplied to the evaluation engine at the
+    time of the evaluation of the expression that uses them. A variable be accessed
+    by its name prefixed by a $. For example, given that a variable with the name
+    'volume' exists in the evaluation context, it can be used in an expression such
+    as <code>(= $volume 1)</code>.</p>
 
 <h3 id="L216">Operators</h3>
 
 <h4 id="L3791">Arithmetic Operators</h4>
 
 <p>All arithmetic operators require at least two arguments, but accepts an
-unspecified number of arguments. Each argument is evaluated against the current
-result.</p>
+    unspecified number of arguments. Each argument is evaluated against the current
+    result.</p>
 
 <div class="sidebar">
-<dl>
-  <dt>+</dt>
-    <dd>Addition</dd>
-  <dt>-</dt>
-    <dd>Subtraction</dd>
-  <dt>*</dt>
-    <dd>Multiplication</dd>
-  <dt>/</dt>
-    <dd>Division</dd>
-    <dd>For example <code>(/ 20 5 4)</code> evaluates to 1.</dd>
-  <dt>%</dt>
-    <dd>Modulus</dd>
-</dl>
+    <dl>
+        <dt>+</dt>
+        <dd>Addition</dd>
+        <dt>-</dt>
+        <dd>Subtraction</dd>
+        <dt>*</dt>
+        <dd>Multiplication</dd>
+        <dt>/</dt>
+        <dd>Division</dd>
+        <dd>For example <code>(/ 20 5 4)</code> evaluates to 1.</dd>
+        <dt>%</dt>
+        <dd>Modulus</dd>
+    </dl>
 </div>
 
 <h4 id="L3791">Comparison Operators</h4>
 
 <p>All comparison operators require at least two arguments, but accepts an
-unspecified number of arguments. The arguments of comparison operators are
-processed one at a time evaluating each argument against the previous argument
-in the list.</p>
+    unspecified number of arguments. The arguments of comparison operators are
+    processed one at a time evaluating each argument against the previous argument
+    in the list.</p>
 
 <div class="sidebar">
-<dl>
-  <dt>=</dt>
-    <dd>Equals</dd>
-  <dt>&lt;</dt>
-    <dd>Less than</dd>
-  <dt>&lt;=</dt>
-    <dd>Less than or equal to</dd>
-  <dt>&gt;</dt>
-    <dd>Greater than</dd>
-    <dd>For example, <code>(&gt; 20 5 4)</code> evaluates to true.</dd>
-  <dt>&gt;=</dt>
-    <dd>Greater than or equal to</dd>
-</dl>
+    <dl>
+        <dt>=</dt>
+        <dd>Equals</dd>
+        <dt>&lt;</dt>
+        <dd>Less than</dd>
+        <dt>&lt;=</dt>
+        <dd>Less than or equal to</dd>
+        <dt>&gt;</dt>
+        <dd>Greater than</dd>
+        <dd>For example, <code>(&gt; 20 5 4)</code> evaluates to true.</dd>
+        <dt>&gt;=</dt>
+        <dd>Greater than or equal to</dd>
+    </dl>
 </div>
 
 <h4 id="L3791">Logical Operators</h4>
 
 <div class="sidebar">
-<dl>
-  <dt>&amp;</dt>
-    <dd>AND</dd>
-    <dd>Accepts two or more arguments. The arguments are processed one at a
-      time, evaluating each argument against the previous argument in the list.
-      Returns a boolean result.</dd>
-  <dt>|</dt>
-    <dd>OR</dd>
-    <dd>Accepts two or more arguments. The arguments are processed one at a
-      time, evaluating each argument against the previous argument in the list.
-      Returns a boolean result.</dd>
-  <dt>!</dt>
-    <dd>NOT</dd>
-    <dd>Accepts one or more arguments. Returns the input arguments negated.</dd>
-</dl>
+    <dl>
+        <dt>&amp;</dt>
+        <dd>AND</dd>
+        <dd>Accepts two or more arguments. The arguments are processed one at a
+            time, evaluating each argument against the previous argument in the list.
+            Returns a boolean result.
+        </dd>
+        <dt>|</dt>
+        <dd>OR</dd>
+        <dd>Accepts two or more arguments. The arguments are processed one at a
+            time, evaluating each argument against the previous argument in the list.
+            Returns a boolean result.
+        </dd>
+        <dt>!</dt>
+        <dd>NOT</dd>
+        <dd>Accepts one or more arguments. Returns the input arguments negated.</dd>
+    </dl>
 </div>
 
 <p>All logical operators require at least two arguments, but accepts an
-unspecified number of arguments.</p>
+    unspecified number of arguments.</p>
 
 <h3 id="L3682">Functions</h3>
 
 <div class="sidebar">
-<dl>
-  <dt>if [test] [value when true] [value when false]</dt>
-    <dd>Specifies an if-else statement. If takes three arguments:
-    the expression to test (must evaluate to a boolean), value when
-     true, value when false</dd>
-  <dt>round [number]</dt>
-    <dd>Rounds a number to its closest integer value.</dd>
-</dl>
+    <dl>
+        <dt>if [test] [value when true] [value when false]</dt>
+        <dd>Specifies an if-else statement. If takes three arguments:
+            the expression to test (must evaluate to a boolean), value when
+            true, value when false
+        </dd>
+        <dt>round [number]</dt>
+        <dd>Rounds a number to its closest integer value.</dd>
+    </dl>
 
-<dl>
-  <dt>concat [strings ...]</dt>
-  	<dd><p class="note">This function is incubating (2016-03-16). This means that it is
-		currently a work-in-progress and may change or be removed at any time.</p>
-		<p>Concatenates all arguments to a single string.</p>
-		</dd>
-  <dt>format [format-string] [values ...]</dt>
-  	<dd><p class="note">This function is incubating (2016-03-16). This means that it is
-		currently a work-in-progress and may change or be removed at any time.</p>
-		<p>Formats a string by inserting the specified values. The first argument is the
-		format string as defined by
-		 <a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html">MessageFormat</a>,
-		 following arguments are parameters to insert in the format string.</p>
-		</dd>
-  <dt>int2text [number] [language-code]</dt>
-  	<dd><p class="note">This function is incubating (2016-03-16). This means that it is
-		currently a work-in-progress and may change or be removed at any time.</p>
-		<p>Formats an integer as a written number. int2text takes two arguments: an 
-		integer number to be converted into text and a language-code.</p>
-		</dd>
-  <dt>numeral-format [style] [value]</dt>
-  	<dd><p class="note">This function is incubating (2016-03-16). This means that it is
-		currently a work-in-progress and may change or be removed at any time.</p>
-		<p>Formats an integer with the specified style. Style should be one of:</p>
-			<ul><li>decimal-leading-zero</li><li>upper-roman</li><li>lower-roman</li><li>upper-alpha</li><li>lower-alpha</li></ul>
-		</dd>
-  <dt>set [key] [value]</dt>
-  	<dd><p class="note">This function is incubating (2016-03-16). This means that it is
-		currently a work-in-progress and may change or be removed at any time.</p>
-		<p>Sets a variable for use in subsequent expressions. Key is the key that will
-		 be replaced by value in any subsequent expressions (within the same evaluation).</p>
-		</dd>
-  <dt>now [date_format]</dt>
-  	<dd><p class="note">This function is incubating (2016-03-16). This means that it is
-		currently a work-in-progress and may change or be removed at any time.</p>
-		<p>Inserts the current date and time using the specified format (as defined by 
-		<a href="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>).</p>
-		</dd>
-		
-</dl>
+    <dl>
+        <dt>concat [strings ...]</dt>
+        <dd><p class="note">This function is incubating (2016-03-16). This means that it is
+            currently a work-in-progress and may change or be removed at any time.</p>
+            <p>Concatenates all arguments to a single string.</p>
+        </dd>
+        <dt>format [format-string] [values ...]</dt>
+        <dd><p class="note">This function is incubating (2016-03-16). This means that it is
+            currently a work-in-progress and may change or be removed at any time.</p>
+            <p>Formats a string by inserting the specified values. The first argument is the
+                format string as defined by
+                <a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html">MessageFormat</a>,
+                following arguments are parameters to insert in the format string.</p>
+        </dd>
+        <dt>int2text [number] [language-code]</dt>
+        <dd><p class="note">This function is incubating (2016-03-16). This means that it is
+            currently a work-in-progress and may change or be removed at any time.</p>
+            <p>Formats an integer as a written number. int2text takes two arguments: an
+                integer number to be converted into text and a language-code.</p>
+        </dd>
+        <dt>numeral-format [style] [value]</dt>
+        <dd><p class="note">This function is incubating (2016-03-16). This means that it is
+            currently a work-in-progress and may change or be removed at any time.</p>
+            <p>Formats an integer with the specified style. Style should be one of:</p>
+            <ul>
+                <li>decimal-leading-zero</li>
+                <li>upper-roman</li>
+                <li>lower-roman</li>
+                <li>upper-alpha</li>
+                <li>lower-alpha</li>
+            </ul>
+        </dd>
+        <dt>set [key] [value]</dt>
+        <dd><p class="note">This function is incubating (2016-03-16). This means that it is
+            currently a work-in-progress and may change or be removed at any time.</p>
+            <p>Sets a variable for use in subsequent expressions. Key is the key that will
+                be replaced by value in any subsequent expressions (within the same evaluation).</p>
+        </dd>
+        <dt>now [date_format]</dt>
+        <dd><p class="note">This function is incubating (2016-03-16). This means that it is
+            currently a work-in-progress and may change or be removed at any time.</p>
+            <p>Inserts the current date and time using the specified format (as defined by
+                <a href="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>).
+            </p>
+        </dd>
+
+    </dl>
 </div>
 
 <h2 id="L784">References</h2>
 
 <h3 id="L786">Normative References</h3>
 
-<p><strong>This section is normative.</strong> </p>
+<p><strong>This section is normative.</strong></p>
 <dl>
-  <dt><a name="ref-digloss" id="ref-digloss"><strong>[DI
-  Glossary]</strong></a></dt>
+    <dt><a name="ref-digloss" id="ref-digloss"><strong>[DI
+        Glossary]</strong></a></dt>
     <dd>"<a href="http://www.w3.org/TR/2005/WD-di-gloss-20050118/">Glossary of
-      Terms for Device Independence</a>", Rhys Lewis, 18 January 2005.<br />
-      <a href="http://www.w3.org/TR/di-gloss/">Latest version</a> available at:
-      http://www.w3.org/TR/di-gloss/</dd>
-  <dt><a name="ref-rfc21191"
-  id="ref-rfc21191"><strong>[RFC2119]</strong></a></dt>
+        Terms for Device Independence</a>", Rhys Lewis, 18 January 2005.<br/>
+        <a href="http://www.w3.org/TR/di-gloss/">Latest version</a> available at:
+        http://www.w3.org/TR/di-gloss/
+    </dd>
+    <dt><a name="ref-rfc21191"
+           id="ref-rfc21191"><strong>[RFC2119]</strong></a></dt>
     <dd>"<a href="http://www.ietf.org/rfc/rfc2119.txt">RFC2119: Key words for
-      use in RFCs to Indicate Requirement Levels</a>", S. Bradner, March
-      1997.<br />
-      Available at: http://www.ietf.org/rfc/rfc2119.txt</dd>
+        use in RFCs to Indicate Requirement Levels</a>", S. Bradner, March
+        1997.<br/>
+        Available at: http://www.ietf.org/rfc/rfc2119.txt
+    </dd>
 </dl>
 </body>
 </html>

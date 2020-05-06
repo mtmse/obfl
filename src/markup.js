@@ -21,7 +21,7 @@ function searchAndReplaceElement(elem, strSearch, link) {
             // since the regex will match a whitespace character preceding the string
             // we should skip over that character
             if (pos>0 || (pos==0 && strSrc.charAt(0)!=strSearch.charAt(0))) {
-            	pos++;
+                pos++;
             }
 
             if (pos>=0) {
@@ -38,19 +38,19 @@ function searchAndReplaceElement(elem, strSearch, link) {
                 elem.replaceChild(fragment, childNode);
             }
         } else if (childNode.nodeType == 1 && childNode.nodeName.toUpperCase()!='DT'
-        	&& childNode.nodeName.toUpperCase()!='A' && !hasClass(childNode, 'no-markup')) { // 1 => an Element Node
-        	searchAndReplaceElement(childNode, strSearch, link);
+            && childNode.nodeName.toUpperCase()!='A' && !hasClass(childNode, 'no-markup')) { // 1 => an Element Node
+            searchAndReplaceElement(childNode, strSearch, link);
         }
     }
 }
 
 function addCrossReferencesToClass(className, strSearch, link)
 {
-	var nodeList = document.getElementsByClassName(className);
-	var nodeArray = [];
-	for (var i = 0; i < nodeList.length; ++i) {
-		searchAndReplaceElement(nodeList[i], strSearch, link);
-	}
+    var nodeList = document.getElementsByClassName(className);
+    var nodeArray = [];
+    for (var i = 0; i < nodeList.length; ++i) {
+        searchAndReplaceElement(nodeList[i], strSearch, link);
+    }
 }
 
 /**
@@ -60,17 +60,17 @@ function addCrossReferencesToClass(className, strSearch, link)
  */
 function addCrossReferences(linkToClass, linkFromClass)
 {
-	var nodeList = [].slice.call(document.getElementsByClassName(linkToClass));
-	nodeList.sort(function(a, b) {
-		return b.innerHTML.length - a.innerHTML.length;
-	});
-	for (var i = 0; i < nodeList.length; ++i) {
-		var id = nodeList[i].attributes.id;
-		if (id!=null) {
-			var name = nodeList[i].textContent;
-			addCrossReferencesToClass(linkFromClass, name, "#"+id.value);
-		}
-	}
+    var nodeList = [].slice.call(document.getElementsByClassName(linkToClass));
+    nodeList.sort(function(a, b) {
+        return b.innerHTML.length - a.innerHTML.length;
+    });
+    for (var i = 0; i < nodeList.length; ++i) {
+        var id = nodeList[i].attributes.id;
+        if (id!=null) {
+            var name = nodeList[i].textContent;
+            addCrossReferencesToClass(linkFromClass, name, "#"+id.value);
+        }
+    }
 }
 
 addCrossReferences("include", "markup");
