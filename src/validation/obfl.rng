@@ -8,7 +8,7 @@
       <ref name="br"/>
       <ref name="evaluate"/>
       <ref name="page-number"/>
-      <ref name="blockmeta"/>
+      <ref name="external-reference"/>
       <ref name="marker-reference"/>
       <ref name="span"/>
       <ref name="style"/>
@@ -1504,13 +1504,13 @@
   <define name="attlist-br" combine="interleave">
     <empty/>
   </define>
-  <define name="blockmeta">
-    <element name="blockmeta">
-      <ref name="attlist-blockmeta"/>
+  <define name="external-reference">
+    <element name="external-reference">
+      <ref name="attlist-external-reference"/>
       <empty/>
     </element>
   </define>
-  <define name="attlist-blockmeta" combine="interleave">
+  <define name="attlist-external-reference" combine="interleave">
     <zeroOrMore>
       <attribute>
         <anyName>
