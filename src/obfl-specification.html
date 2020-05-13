@@ -1322,10 +1322,11 @@ element.</p>
 
 <h4 id="L840" class="include">external-reference</h4>
 
-<ins datetime="20200429T15:00:00">The external-reference element can be attached to any position in the text within the block
-  to send information through the dotify framework from obfl to pef.</ins>
+<ins datetime="20200429T15:00:00">The external-reference element can be attached to any position in the text
+  within the block to send information through the implementation from obfl to pef.</ins>
 
-<p>The external-reference element is used to add information.</p>
+<p>With the external-reference element custom annotations can be attached to any position in the text within
+  a block or field. How the user agent processes the information is implementation dependent.</p>
 
 <div class="sidebar markup">
 <dl>
@@ -1341,6 +1342,32 @@ element.</p>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
 </dl>
+</div>
+
+<h5 id="L1331">Example</h5>
+<p>A typical use case is to pass information through unchanged from the source document to the destination,
+  for instance a PEF document [<a class="nref"
+  href="#ref-pef">PEF</a>]. The result document is annotated with the exact same information attached
+  to the corresponding positions in the braille.</p>
+
+<div class="example">
+  <pre>
+    &lt;obfl>
+      ...
+        &lt;block>&lt;external-reference example:key="value"/>This is some text&lt;/block>
+      ...
+    &lt;/obfl>
+  </pre>
+</div>
+
+<div class="example">
+  <pre>
+    &lt;pef>
+      ...
+        &lt;row example:key="value">⠠⠞⠓⠊⠎ ⠊⠎ ⠎⠕⠍⠑ ⠞⠑⠭⠞&lt;/row>
+      ...
+    &lt;/pef>
+  </pre>
 </div>
 
 <h4 id="L849" class="include">span</h4>
@@ -2991,6 +3018,11 @@ of this specification.</p>
       Terms for Device Independence</a>", Rhys Lewis, 18 January 2005.<br />
       <a href="http://www.w3.org/TR/di-gloss/">Latest version</a> available at:
       http://www.w3.org/TR/di-gloss/</dd>
+
+  <dt><a id="ref-pef"><strong>[PEF]</strong></a></dt>
+    <dd>"<a href="https://mtmse.github.io/pef/pef-specification.html">PEF 1.0 - Portable Embosser Format (Public draft)</a>",
+      Joel Håkansson, 12 September 2011.<br />
+      <a href="https://mtmse.github.io/pef/">Latest version</a> available at: https://mtmse.github.io/pef</dd>
   <dt><a id="ref-rfc2119"><strong>[RFC2119]</strong></a></dt>
     <dd>"<a href="http://www.ietf.org/rfc/rfc2119.txt">RFC2119: Key words for
       use in RFCs to Indicate Requirement Levels</a>", S. Bradner, March
