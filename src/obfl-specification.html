@@ -6,7 +6,7 @@
   <meta name="dc:identifier" content="" />
   <meta name="dc:Title" content="OBFL Specification" />
   <meta name="dc:Language" content="en" />
-  <meta name="dc:Date" content="2019-12-02" />
+  <meta name="dc:Date" content="2020-04-29" />
   <link rel="stylesheet" href="styles/w3c-unofficial.css" type="text/css" />
   <link rel="stylesheet" href="styles/style.css" type="text/css" />
 </head>
@@ -19,7 +19,7 @@
 <dl>
   <dt>This version:</dt>
     <dd><a
-      href="https://braillespecs.github.io/obfl/obfl-specification.html">https://braillespecs.github.io/obfl/obfl-specification.html</a></dd>
+      href="https://mtmse.github.io/obfl/obfl-specification.html">https://mtmse.github.io/obfl/obfl-specification.html</a></dd>
   <dt>Author:</dt>
     <dd>Joel Håkansson</dd>
   <dt>Contributors:</dt>
@@ -671,7 +671,7 @@ area.</p>
       group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>block, text(), leader, marker, br, evaluate, page-number,
+    <dd>block, text(), leader, marker, br, evaluate, page-number, external-reference,
       marker-reference, span, style [0 or more]</dd>
 </dl>
 </div>
@@ -693,7 +693,7 @@ area.</p>
       group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>block, text(), leader, marker, br, evaluate, page-number,
+    <dd>block, text(), leader, marker, br, evaluate, page-number, external-reference,
       marker-reference, span, style [0 or more]</dd>
 </dl>
 </div>
@@ -865,7 +865,7 @@ markers are present on the indicated row.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd class="markup">marker-reference, string, current-page, evaluate [0 or
+    <dd class="markup">marker-reference, string, current-page, external-reference, evaluate [0 or
       more]</dd>
 </dl>
 </div>
@@ -1167,7 +1167,7 @@ should be excluded entirely.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+    <dd>text(), leader, marker, br, evaluate, page-number, external-reference, marker-reference,
       span, style, anchor, block, table, xml-data [0 or more]</dd>
 </dl>
 </div>
@@ -1315,6 +1315,56 @@ element.</p>
 </dl>
 </div>
 
+<h4 id="L840" class="include">external-reference</h4>
+
+<ins datetime="20200429T15:00:00">The external-reference element can be attached to any position in the text
+  within the block to send information through the implementation from obfl to pef.</ins>
+
+<p>With the external-reference element custom annotations can be attached to any position in the text within
+  a block or field. How the user agent processes the information is implementation dependent.</p>
+
+<div class="sidebar markup">
+<dl>
+  <dt>Usage</dt>
+    <dd>block</dd>
+  <dt>Attributes</dt>
+    <dd>
+      <dl>
+        <dt>any attribute [optional]</dt>
+          <dd></dd>
+      </dl>
+    </dd>
+  <dt>Content Model</dt>
+    <dd>Empty.</dd>
+</dl>
+</div>
+
+<h5 id="L1331">Example</h5>
+<p>A typical use case is to pass information through unchanged from the source document to the destination,
+  for instance a PEF document [<a class="nref"
+  href="#ref-pef">PEF</a>]. The result document is annotated with the exact same information attached
+  to the corresponding positions in the braille.</p>
+
+<div class="example">
+  <pre>
+    &lt;obfl>
+      ...
+        &lt;block>&lt;external-reference example:key="value"/>This is some text&lt;/block>
+      ...
+    &lt;/obfl>
+  </pre>
+</div>
+
+<div class="example">
+  <pre>
+    &lt;pef>
+      ...
+        &lt;row example:key="value">⠠⠞⠓⠊⠎ ⠊⠎ ⠎⠕⠍⠑ ⠞⠑⠭⠞&lt;/row>
+      ...
+    &lt;/pef>
+  </pre>
+</div>
+
 <h4 id="L849" class="include">span</h4>
 
 <p>The span element represents a segment of text whose hyphenation policy or
@@ -1363,7 +1413,7 @@ emphasis or strong.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), style, marker, br, anchor, evaluate, page-number,
+    <dd>text(), style, marker, br, anchor, evaluate, page-number, external-reference,
     marker-reference [0 or more]</dd>
 </dl>
 </div>
@@ -1538,7 +1588,7 @@ table spans.</p>
         and <a href="#padding-atts">Padding</a> attributes groups.</p>
     </dd>
   <dt>Content Model</dt>
-  <dd>text(), leader, marker, br, evaluate, page-number, marker-reference, span,
+  <dd>text(), leader, marker, br, evaluate, page-number, external-reference, marker-reference, span,
   style, anchor, block, xml-data [0 or more]</dd>
 </dl>
 </div>
@@ -1607,7 +1657,7 @@ volume. In a document-ranged toc-sequence, the content will always be rendered.<
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+    <dd>text(), leader, marker, br, evaluate, page-number, external-reference, marker-reference,
       span, style [0 or more]</dd>
 </dl>
 </div>
@@ -1652,7 +1702,7 @@ more than once. The range consists of two block ids (the latter is optional).</p
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+    <dd>text(), leader, marker, br, evaluate, page-number, external-reference, marker-reference,
       span, style [0 or more]</dd>
 </dl>
 </div>
@@ -1959,7 +2009,7 @@ volume's body of pages.</p>
     <dt>Usage</dt>
     <dd>volume-transition</dd>
     <dt>Content Model</dt>
-    <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+    <dd>text(), leader, marker, br, evaluate, page-number, external-reference, marker-reference,
     span, style [0 or more]</dd>
   </dl>
 </div>
@@ -1975,7 +2025,7 @@ volume's body of pages.</p>
       <dt>Usage</dt>
       <dd>volume-transition</dd>
       <dt>Content Model</dt>
-      <dd>text(), leader, marker, br, evaluate, page-number, marker-reference,
+      <dd>text(), leader, marker, br, evaluate, page-number, external-reference, marker-reference,
       span, style [0 or more]</dd>
     </dl>
   </div>
@@ -2082,7 +2132,7 @@ flow. The behavior of this element is similar to the toc-entry element.</p>
       group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>block, text(), leader, marker, br, evaluate, page-number,
+    <dd>block, text(), leader, marker, br, evaluate, page-number, external-reference,
       marker-reference, span, style [0 or more]</dd>
 </dl>
 </div>
@@ -2963,6 +3013,11 @@ of this specification.</p>
       Terms for Device Independence</a>", Rhys Lewis, 18 January 2005.<br />
       <a href="http://www.w3.org/TR/di-gloss/">Latest version</a> available at:
       http://www.w3.org/TR/di-gloss/</dd>
+
+  <dt><a id="ref-pef"><strong>[PEF]</strong></a></dt>
+    <dd>"<a href="https://mtmse.github.io/pef/pef-specification.html">PEF 1.0 - Portable Embosser Format (Public draft)</a>",
+      Joel Håkansson, 12 September 2011.<br />
+      <a href="https://mtmse.github.io/pef/">Latest version</a> available at: https://mtmse.github.io/pef</dd>
   <dt><a id="ref-rfc2119"><strong>[RFC2119]</strong></a></dt>
     <dd>"<a href="http://www.ietf.org/rfc/rfc2119.txt">RFC2119: Key words for
       use in RFCs to Indicate Requirement Levels</a>", S. Bradner, March

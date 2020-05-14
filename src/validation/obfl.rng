@@ -8,6 +8,7 @@
       <ref name="br"/>
       <ref name="evaluate"/>
       <ref name="page-number"/>
+      <ref name="external-reference"/>
       <ref name="marker-reference"/>
       <ref name="span"/>
       <ref name="style"/>
@@ -62,9 +63,9 @@
   -->
   <!--
     Due to the limitations in expressiveness of text-only media, the meaning of the numbers are
-    open to interpretation. 1 should be the thinnest possible value, 2 should be the double width 
-    of 1, and so on. However, if it better matches the capabilities of the border characters, 2 
-    could also mean the second thinnest possible border, and 3 the third thinnest border, and so on. 
+    open to interpretation. 1 should be the thinnest possible value, 2 should be the double width
+    of 1, and so on. However, if it better matches the capabilities of the border characters, 2
+    could also mean the second thinnest possible border, and 3 the third thinnest border, and so on.
     The default value is 1.
   -->
   <!--
@@ -703,7 +704,7 @@
   </define>
   <define name="attlist-current-page" combine="interleave">
     <optional>
-      <ref name="number-format-attribute"/>  
+      <ref name="number-format-attribute"/>
     </optional>
     <optional>
       <attribute name="text-style">
@@ -996,7 +997,7 @@
         <ref name="on-toc-end"/>
       </zeroOrMore>
     </element>
-  </define>  
+  </define>
   <define name="attlist-toc-sequence" combine="interleave">
     <attribute name="toc">
       <data type="IDREF"/>
@@ -1497,6 +1498,24 @@
   <define name="attlist-br" combine="interleave">
     <empty/>
   </define>
+  <define name="external-reference">
+    <element name="external-reference">
+      <ref name="attlist-external-reference"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="attlist-external-reference" combine="interleave">
+    <zeroOrMore>
+      <attribute>
+        <anyName>
+            <except>
+              <nsName ns=""/>
+              <nsName ns="http://www.daisy.org/ns/2011/obfl"/>
+            </except>
+        </anyName>
+      </attribute>
+    </zeroOrMore>
+  </define>
   <define name="page-number">
     <element name="page-number">
       <ref name="attlist-page-number"/>
@@ -1615,7 +1634,7 @@
   <define name="attlist-xml-data" combine="interleave">
     <attribute name="renderer" >
       <data type="IDREF"/>
-    </attribute> 
+    </attribute>
   </define>
   <define name="renderer">
     <element name="renderer">
@@ -1705,7 +1724,7 @@
       </choice>
     </zeroOrMore>
   </define>
-  
+
   <define name="any_element_except_obfl">
     <element>
       <anyName><except><nsName ns="http://www.daisy.org/ns/2011/obfl"></nsName></except></anyName>
@@ -1717,22 +1736,22 @@
       <ref name="any"/>
     </element>
   </define>
-  
+
   <define name="any_content">
     <zeroOrMore>
       <choice>
         <ref name="any_element"/>
         <ref name="any_obfl"/>
         <text/>
-      </choice>        
+      </choice>
     </zeroOrMore>
   </define>
- 
+
   <define name="any_obfl">
     <documentation xmlns="http://relaxng.org/ns/compatibility/annotations/1.0">
       This definition is complex because any id/idref values defined in obfl needs to be retained using an enumerated list.
       For these elements, the id/idref attributes are retained as optional. This will work for many situations, but it will
-      fail in some cases, for example if the same id is used on two obfl elements inside different branches of an xslt choice 
+      fail in some cases, for example if the same id is used on two obfl elements inside different branches of an xslt choice
       statement.
     </documentation>
     <choice>
@@ -1832,7 +1851,7 @@
     </element>
     </choice>
   </define>
-  
+
   <define name="any_element">
     <element>
       <anyName><except><nsName ns="http://www.daisy.org/ns/2011/obfl"></nsName></except></anyName>
