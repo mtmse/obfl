@@ -24,6 +24,7 @@
     <dd>Joel Håkansson</dd>
   <dt>Contributors:</dt>
     <dd>Bert Frees</dd>
+    <dd>Daniel Persson</dd>
     <dd>Paul Rambags</dd>
 </dl>
 
@@ -485,6 +486,8 @@ element is allowed, however a stricter set of elements might be more useful.</p>
 where the layout-master is applied. It contains page template information, such
 as the width and height of pages.</p>
 
+<ins datetime="20200608T19:00:00">Variable names are fixed.</ins>
+
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
@@ -503,9 +506,6 @@ as the width and height of pages.</p>
           <dd>Default is 0.</dd>
         <dt>page-height [required]</dt>
           <dd>The page height, in row heights.</dd>
-        <dt>page-number-variable [optional]</dt>
-          <dd>A name for the variable to be used in expression evaluation.</dd>
-          <dd>Default is ???.</dd>
         <dt>page-width [required]</dt>
           <dd>The page width, in characters.</dd>
         <dt>row-spacing [optional]</dt>
@@ -1866,22 +1866,14 @@ sequences that can be used to create static contents such as information about
 the author and title of the book, there is a special sequence called
 toc-sequence.</p>
 
+<ins datetime="20200608T19:00:00">Variable names are fixed.</ins>
+
 <div class="sidebar markup">
 <dl>
   <dt>Usage</dt>
     <dd>obfl</dd>
   <dt>Attributes</dt>
     <dd><dl>
-        <dt>volume-count-variable [optional]</dt>
-          <dd>Definition of the name of the variable holding the number of
-            volumes. It can be used in an expression, e.g. <code>(= $volumes
-            1)</code>.</dd>
-          <dd>Default is 'volumes'.</dd>
-        <dt>volume-number-variable [optional]</dt>
-          <dd>Definition of the name of the variable holding the current volume
-            number. It can be used in an expression, e.g. <code>(= $volume
-            1)</code>.</dd>
-          <dd>Default is 'volume'.</dd>
         <dt>use-when [optional]</dt>
           <dd>A condition for applying the volume-template, expressed using the
             <a href="obfl-evaluation-language.html">OBFL Evaluation

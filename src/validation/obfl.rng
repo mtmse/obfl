@@ -570,9 +570,6 @@
         </choice>
       </attribute>
     </optional>
-    <optional>
-      <attribute name="page-number-variable"/>
-    </optional>
     <ref name="border-atts"/>
   </define>
   <define name="template">
@@ -867,12 +864,6 @@
   <define name="attlist-volume-template" combine="interleave">
     <optional>
       <attribute name="use-when"/>
-    </optional>
-    <optional>
-      <attribute name="volume-number-variable"/>
-    </optional>
-    <optional>
-      <attribute name="volume-count-variable"/>
     </optional>
     <attribute name="sheets-in-volume-max"/>
   </define>
