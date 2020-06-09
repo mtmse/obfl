@@ -1195,6 +1195,36 @@ information.</p>
           <dd class="markup note">This attribute is only available in the context of a field element.</dd>
       </dl>
     </dd>
+  <dt>Variables</dt>
+    <dd class="markup note">These are commonly available variables. Depending
+      on the context, other variables may be available as well.</dd>
+    <dd class="markup note">For readability, the examples below have plain text
+    instead of braille.</dd>
+    <dd><dl>
+        <dt>page</dt>
+          <dd>The variable holding the current page number. It can be
+            used in the expression, for instance, <code>This is page
+            &lt;evaluate expression="$page"/&gt;</code>.</dd>
+        <dt>volume</dt>
+          <dd>The variable holding the current volume number. It can be
+            used in the expression, for instance, <code>This is volume
+            &lt;evaluate expression="$volume"/&gt;</code>.</dd>
+        <dt>volumes</dt>
+          <dd>The variable holding the total number of volumes. It can be
+            used in the expression, for instance, <code>This book has
+            &lt;evaluate expression="$volumes"/&gt; volumes</code>.</dd>
+        <dt>sheets-in-document</dt>
+          <dd>The variable holding the number of sheets in this document. It can
+            be used in the expression, for instance, <code>This document has
+            &lt;evaluate expression="$sheets-in-document"/&gt;
+            sheets</code>.</dd>
+        <dt>sheets-in-volume</dt>
+          <dd>The variable holding the number of sheets of the current volume.
+            It can be used in the expression, for instance, <code>This volume
+            has &lt;evaluate expression="$sheets-in-volume"/&gt;
+            sheets</code>.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
 </dl>
@@ -1614,6 +1644,18 @@ elements with toc-entry elements as inline content.</ins>
           <dd>An id.</dd>
       </dl>
     </dd>
+  <dt>Variables</dt>
+    <dd><dl>
+        <dt>started-volume-number</dt>
+          <dd>The variable holding the number of the started volume. It can be
+            used in an expression, for instance, <code>&lt;evaluate
+            expression="$started-volume-number"/&gt;</code>.</dd>
+        <dt>started-page-number</dt>
+          <dd>The variable holding the number of the started page. It can be
+            used in an expression, for instance, <code>&lt;evaluate
+            expression="$started-page-number"/&gt;</code>.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>toc-block [1 or more]</dd>
 </dl>
@@ -1805,6 +1847,14 @@ document range toc-sequences and list-of-references.</p>
           <dd class="markup note">This attribute is only available in the context of a toc-sequence.</dd>
       </dl>
     </dd>
+  <dt>Variables</dt>
+    <dd><dl>
+        <dt>started-volume-number</dt>
+          <dd>The variable holding the number of the started volume. It can be
+            used in an evaluate expression, e.g. <code>&lt;evaluate
+            expression="$started-volume-number"/&gt;</code>.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
 </dl>
@@ -1827,6 +1877,14 @@ document range toc-sequences and list-of-references.</p>
             href="obfl-evaluation-language.html">OBFL Evaluation
           Language</a></dd>
           <dd class="markup note">This attribute is only available in the context of a toc-sequence.</dd>
+      </dl>
+    </dd>
+  <dt>Variables</dt>
+    <dd><dl>
+        <dt>started-volume-number</dt>
+          <dd>The variable holding the number of the started volume. It can be
+            used in an evaluate expression, e.g. <code>&lt;evaluate
+            expression="$started-volume-number"/&gt;</code>.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -2191,6 +2249,14 @@ collection items on a page.</p>
     <dd>list-of-references</dd>
   <dt>Attributes</dt>
     <dd>None</dd>
+  <dt>Variables</dt>
+    <dd><dl>
+        <dt>started-page-number</dt>
+          <dd>The variable holding the number of the started page. It can be
+            used in an expression, for instance, <code>&lt;evaluate
+            expression="$started-page-number"/&gt;</code>.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
 </dl>
@@ -2207,6 +2273,14 @@ collection items on a page.</p>
     <dd>list-of-references</dd>
   <dt>Attributes</dt>
     <dd>None</dd>
+  <dt>Variables</dt>
+    <dd><dl>
+        <dt>started-page-number</dt>
+          <dd>The variable holding the number of the started page. It can be
+            used in an expression, for instance, <code>&lt;evaluate
+            expression="$started-page-number"/&gt;</code>.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
 </dl>
@@ -2315,6 +2389,22 @@ applied to a given xml-data.</p>
               <li>evaluate to a boolean</li>
             </ul>
           </dd>
+      </dl>
+    </dd>
+  <dt>Variables</dt>
+    <dd><dl>
+        <dt>min-block-width</dt>
+          <dd>The variable holding the minimum block with. It can be
+            used in the cost expression, for instance, <code>cost="(- 30
+            $min-block-width)"</code>.</dd>
+        <dt>forced-break-count</dt>
+          <dd>The variable holding the count of forced breaks. It can be
+            used in an expression, for instance, <code>cost="(* 10
+            $forced-break-count)"</code>.</dd>
+        <dt>total-height</dt>
+          <dd>The variable holding the total height. It can be
+            used in the cost expression, for instance, <code>cost="(+ 1
+            $total-height)"</code>.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
