@@ -550,8 +550,11 @@ text flow area is reduced by the combined width of the margin-regions.</p>
     </dd>
   <dt>Variables</dt>
     <dd>
-      <p>In the use-when condition, the commonly available variables as
-        listed with the evaluate element can be used.</p>
+      <p>These variables can be used in the use-when condition:</p>
+      <dl>
+        <dt>page</dt>
+          <dd>The current page number.</dd>
+      </dl>
     </dd>
   <dt>Content Model</dt>
     <dd>In this order: 
@@ -1228,7 +1231,6 @@ information.</p>
             For instance, <code>This volume has &lt;evaluate
             expression="$sheets-in-volume"/&gt; sheets</code>.</dd>
       </dl>
-      <p>These common variables can also be used in all use-when conditions.</p>
     </dd>
     <dd>
       <p class="markup">This variable is available in descendant elements of
@@ -1255,7 +1257,7 @@ information.</p>
       </dl>
     </dd>
     <dd>
-      <p class="markup">These variables are available in the cost expression of
+      <p class="markup">These variables can be used in the cost expression of
         rendering-scenario:</p>
       <dl>
         <dt>min-block-width</dt>
@@ -1265,6 +1267,47 @@ information.</p>
         <dt>total-height</dt>
           <dd>The total height.</dd>
       </dl>
+    </dd>
+    <dd>
+      <p>Some of the above-mentioned variables can be used in use-when
+        conditions. Here is an overview of all elements with a
+        use-when condition and the variables that can be used in the
+        condition:</p>
+        <table class="page-model">
+          <thead>
+            <tr>
+              <th>Element with use-when condition</th>
+              <th>Variables available in use-when</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="markup">volume-template</td>
+              <td>$volume, $volumes</td>
+            </tr>
+            <tr>
+              <td class="markup">template</td>
+              <td>$page</td>
+            </tr>
+            <tr>
+              <td class="markup">on-volume-start</td>
+              <td>$started-volume-number, $volumes</td>
+            </tr>
+            <tr>
+              <td class="markup">on-volume-end</td>
+              <td>$started-volume-number, $volumes</td>
+            </tr>
+            <tr>
+              <td class="markup">on-toc-start</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="markup">on-toc-end</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <p></p>
     </dd>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
@@ -1854,8 +1897,7 @@ data.</p>
     </dd>
   <dt>Variables</dt>
     <dd>
-      <p>In the use-when condition, the commonly available variables as
-        listed with the evaluate element can be used.</p>
+      <p>The use of variables is not supported in the use-when condition.</p>
     </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
@@ -1883,8 +1925,13 @@ document range toc-sequences and list-of-references.</p>
     </dd>
   <dt>Variables</dt>
     <dd>
-      <p>In the use-when condition, the commonly available variables as
-        listed with the evaluate element can be used.</p>
+      <p>These variables can be used in the use-when condition:</p>
+      <dl>
+        <dt>started-volume-number</dt>
+          <dd>The volume number of the volume that was started.</dd>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
+      </dl>
       <p>This variable can be used in a descendant evaluate expression:</p>
       <dl>
         <dt>started-volume-number</dt>
@@ -1917,8 +1964,13 @@ document range toc-sequences and list-of-references.</p>
     </dd>
   <dt>Variables</dt>
     <dd>
-      <p>In the use-when condition, the commonly available variables as
-        listed with the evaluate element can be used.</p>
+      <p>These variables can be used in the use-when condition:</p>
+      <dl>
+        <dt>started-volume-number</dt>
+          <dd>The volume number of the volume that was ended.</dd>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
+      </dl>
       <p>This variable can be used in a descendant evaluate expression:</p>
       <dl>
         <dt>started-volume-number</dt>
@@ -1949,8 +2001,7 @@ data.</p>
     </dd>
   <dt>Variables</dt>
     <dd>
-      <p>In the use-when condition, the commonly available variables as
-        listed with the evaluate element can be used.</p>
+      <p>The use of variables is not supported in the use-when condition.</p>
     </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
@@ -1986,8 +2037,13 @@ toc-sequence.</p>
     </dd>
   <dt>Variables</dt>
     <dd>
-      <p>In the use-when condition, the commonly available variables as
-        listed with the evaluate element can be used.</p>
+      <p>These variables can be used in the use-when condition:</p>
+      <dl>
+        <dt>volume</dt>
+          <dd>The current volume number.</dd>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
+      </dl>
     </dd>
   <dt>Content Model</dt>
     <dd>In this order: 
