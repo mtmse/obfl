@@ -1256,59 +1256,6 @@ information.</p>
           <dd>The first page number of the content of the started volume.</dd>
       </dl>
     </dd>
-    <dd>
-      <p class="markup">These variables can be used in the cost expression of
-        rendering-scenario:</p>
-      <dl>
-        <dt>min-block-width</dt>
-          <dd>The minimum block width.</dd>
-        <dt>forced-break-count</dt>
-          <dd>The number of forced breaks.</dd>
-        <dt>total-height</dt>
-          <dd>The total height.</dd>
-      </dl>
-    </dd>
-    <dd>
-      <p>Some of the above-mentioned variables can be used in use-when
-        conditions. Here is an overview of all elements with a
-        use-when condition and the variables that can be used in the
-        condition:</p>
-        <table class="page-model">
-          <thead>
-            <tr>
-              <th>Element with use-when condition</th>
-              <th>Variables available in use-when</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="markup">volume-template</td>
-              <td>$volume, $volumes</td>
-            </tr>
-            <tr>
-              <td class="markup">template</td>
-              <td>$page</td>
-            </tr>
-            <tr>
-              <td class="markup">on-volume-start</td>
-              <td>$started-volume-number, $volumes</td>
-            </tr>
-            <tr>
-              <td class="markup">on-volume-end</td>
-              <td>$started-volume-number, $volumes</td>
-            </tr>
-            <tr>
-              <td class="markup">on-toc-start</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="markup">on-toc-end</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <p></p>
-    </dd>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
 </dl>
@@ -1897,7 +1844,11 @@ data.</p>
     </dd>
   <dt>Variables</dt>
     <dd>
-      <p>The use of variables is not supported in the use-when condition.</p>
+      <p>This variable can be used in the use-when condition:</p>
+      <dl>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
+      </dl>
     </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
@@ -2001,7 +1952,11 @@ data.</p>
     </dd>
   <dt>Variables</dt>
     <dd>
-      <p>The use of variables is not supported in the use-when condition.</p>
+      <p>This variable can be used in the use-when condition:</p>
+      <dl>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
+      </dl>
     </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
