@@ -548,6 +548,14 @@ text flow area is reduced by the combined width of the margin-regions.</p>
           <dd>An expression.</dd>
       </dl>
     </dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>These variables can be used in the use-when condition:</p>
+      <dl>
+        <dt>page</dt>
+          <dd>The current page number.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>In this order: 
       <ul>
@@ -1195,6 +1203,61 @@ information.</p>
           <dd class="markup note">This attribute is only available in the context of a field element.</dd>
       </dl>
     </dd>
+  <dt>Variables</dt>
+    <dd class="markup note">For readability, the examples below have plain text
+      instead of braille.</dd>
+    <dd>
+      <p>These are the commonly available variables for use in the <a
+        href="obfl-evaluation-language.html">OBFL Evaluation Language</a>
+        expression:</p>
+      <dl>
+        <dt>page</dt>
+          <dd>The variable holding the current page number. For instance,
+            <code>This is page &lt;evaluate expression="$page"/&gt;</code>.</dd>
+        <dt>volume</dt>
+          <dd>The variable holding the current volume number. For instance,
+            <code>This is volume &lt;evaluate
+            expression="$volume"/&gt;</code>.</dd>
+        <dt>volumes</dt>
+          <dd>The variable holding the total number of volumes. For instance,
+            <code>This book has &lt;evaluate expression="$volumes"/&gt;
+              volumes</code>.</dd>
+        <dt>sheets-in-document</dt>
+          <dd>The variable holding the number of sheets in this document. For
+            instance, <code>This document has &lt;evaluate
+            expression="$sheets-in-document"/&gt; sheets</code>.</dd>
+        <dt>sheets-in-volume</dt>
+          <dd>The variable holding the number of sheets of the current volume.
+            For instance, <code>This volume has &lt;evaluate
+            expression="$sheets-in-volume"/&gt; sheets</code>.</dd>
+      </dl>
+    </dd>
+    <dd>
+      <p class="markup">This variable is available in descendant elements of
+        on-volume-start and on-volume-end:</p>
+      <dl>
+        <dt>started-volume-number</dt>
+          <dd>The volume number of the volume that was started or ended, 
+            respectively.</dd>
+      </dl>
+    </dd>
+    <dd>
+      <p class="markup">This variable is available in descendant elements of
+        on-page-start and on-page-end:</p>
+      <dl>
+        <dt>started-page-number</dt>
+          <dd>The page number of the page that was started or ended,
+            respectively.</dd>
+      </dl>
+    </dd>
+    <dd>
+      <p class="markup">This variable is available in descendant elements of
+        toc-entry-on-resumed:</p>
+      <dl>
+        <dt>started-volume-first-content-page</dt>
+          <dd>The first page number of the content of the started volume.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>Empty.</dd>
 </dl>
@@ -1238,7 +1301,7 @@ the current row.</p>
 <h4 id="L1353" class="include">marker</h4>
 
 <p>The marker element provides locations for classes of values that may be
-refered to in headers and footers.</p>
+referred to in headers and footers.</p>
 
 <div class="sidebar markup">
 <dl>
@@ -1693,12 +1756,12 @@ more than once. The range consists of two block ids (the latter is optional).</p
       </dl>
     </dd>
   <dt>Variables</dt>
-    <dd><dl>
+    <dd>
+      <p>This variable can be used in a descendant evaluate expression:</p>
+      <dl>
         <dt>started-volume-first-content-page</dt>
           <dd>The variable holding the first page number of the content of the
-            started volume. It can be used in an evaluate expression, e.g.
-            <code>&lt;evaluate
-            expression="$started-volume-first-content-page"/&gt;</code>.</dd>
+            started volume.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -1781,6 +1844,14 @@ data.</p>
           Language</a></dd>
       </dl>
     </dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>This variable can be used in the use-when condition:</p>
+      <dl>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
 </dl>
@@ -1803,6 +1874,21 @@ document range toc-sequences and list-of-references.</p>
             href="obfl-evaluation-language.html">OBFL Evaluation
           Language</a></dd>
           <dd class="markup note">This attribute is only available in the context of a toc-sequence.</dd>
+      </dl>
+    </dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>These variables can be used in the use-when condition:</p>
+      <dl>
+        <dt>started-volume-number</dt>
+          <dd>The volume number of the volume that was started.</dd>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
+      </dl>
+      <p>This variable can be used in a descendant evaluate expression:</p>
+      <dl>
+        <dt>started-volume-number</dt>
+          <dd>The variable holding the number of the started volume.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -1829,6 +1915,21 @@ document range toc-sequences and list-of-references.</p>
           <dd class="markup note">This attribute is only available in the context of a toc-sequence.</dd>
       </dl>
     </dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>These variables can be used in the use-when condition:</p>
+      <dl>
+        <dt>started-volume-number</dt>
+          <dd>The volume number of the volume that was ended.</dd>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
+      </dl>
+      <p>This variable can be used in a descendant evaluate expression:</p>
+      <dl>
+        <dt>started-volume-number</dt>
+          <dd>The variable holding the number of the volume that was ended.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
 </dl>
@@ -1849,6 +1950,14 @@ data.</p>
           <dd>a condition for inserting the contents, expressed using the <a
             href="obfl-evaluation-language.html">OBFL Evaluation
           Language</a></dd>
+      </dl>
+    </dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>This variable can be used in the use-when condition:</p>
+      <dl>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -1881,6 +1990,16 @@ toc-sequence.</p>
         <dt>sheets-in-volume-max [required]</dt>
           <dd>Defines the maximum number of sheets in a volume using this
             volume-template.</dd>
+      </dl>
+    </dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>These variables can be used in the use-when condition:</p>
+      <dl>
+        <dt>volume</dt>
+          <dd>The current volume number.</dd>
+        <dt>volumes</dt>
+          <dd>The total number of volumes.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -2191,6 +2310,14 @@ collection items on a page.</p>
     <dd>list-of-references</dd>
   <dt>Attributes</dt>
     <dd>None</dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>This variable can be used in a descendant evaluate expression:</p>
+      <dl>
+        <dt>started-page-number</dt>
+          <dd>The variable holding the number of the started page.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
 </dl>
@@ -2207,6 +2334,14 @@ collection items on a page.</p>
     <dd>list-of-references</dd>
   <dt>Attributes</dt>
     <dd>None</dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>This variable can be used in a descendant evaluate expression:</p>
+      <dl>
+        <dt>started-page-number</dt>
+          <dd>The variable holding the number of the page that was ended.</dd>
+      </dl>
+    </dd>
   <dt>Content Model</dt>
     <dd>block [1 or more]</dd>
 </dl>
@@ -2315,6 +2450,21 @@ applied to a given xml-data.</p>
               <li>evaluate to a boolean</li>
             </ul>
           </dd>
+      </dl>
+    </dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>These are the available variables for use in the cost expression:</p>
+      <dl>
+        <dt>min-block-width</dt>
+          <dd>The variable holding the minimum block width. For instance,
+            <code>cost="(- 30 $min-block-width)"</code>.</dd>
+        <dt>forced-break-count</dt>
+          <dd>The variable holding the number of forced breaks. For instance,
+            <code>cost="(* 10 $forced-break-count)"</code>.</dd>
+        <dt>total-height</dt>
+          <dd>The variable holding the total height. For instance,
+            <code>cost="(+ 1 $total-height)"</code>.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
