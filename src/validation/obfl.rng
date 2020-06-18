@@ -447,6 +447,18 @@
       <attribute name="break-before">
         <choice>
           <value>auto</value>
+          <value>page</value>
+          <value>sheet</value>
+          <value>volume</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="break-after">
+        <choice>
+          <value>auto</value>
+          <value>page</value>
+          <value>sheet</value>
           <value>volume</value>
         </choice>
       </attribute>
