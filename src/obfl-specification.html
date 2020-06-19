@@ -351,16 +351,18 @@ of these containers, starting from 1 each time.</p>
 <p class="markup">In a sequence where duplex is enabled, both sides of sheets
   are counted and paginated. However, if the last sheet of a duplex sequence
   only has content on the front side, it depends on the values of the
-  attributes break-before and break-after on sequence, dynamic-sequence and
-  toc-sequence whether an extra page will be inserted so that the next sequence
-  starts at a right page, and whether that extra page is <em>paginated</em>
-  (which means that it has a page number and possibly a header and a footer).
-  The extra page is always counted. The default behavior is that an extra page
-  will be inserted which is not paginated.</p>
+  attributes break-before and break-after on
+  <span class="markup">sequence</span>, dynamic-sequence and toc-sequence
+  whether an extra page will be inserted so that the next sequence starts at a
+  right page, and whether that extra page is <em>paginated</em> (which means
+  that it has a page number and possibly a header and a footer). The extra page
+  is always counted. The default behavior is that an extra page will be inserted
+  which is not paginated.</p>
 
-<div class="markup">The just-mentioned break-before and break-after attributes
-  insert a break before or after the sequence, respectively. Depending on the
-  specific element, some of these values are supported:
+<div>The just-mentioned break-before and break-after attributes
+  insert a break before or after the <span class="markup">sequence</span>,
+  respectively. Depending on the specific element, some of these values are
+  supported:
   <dl>
     <dt>'volume'</dt>
       <dd>inserts a volume break. This value only applies to text body
@@ -379,16 +381,14 @@ of these containers, starting from 1 each time.</p>
   </dl>
 </div>
 
-<p class="markup">The break-before and break-after attributes cover the cases
-  where you transition from the last sequence of the pre-content to the body
-  when the body is a resumption of a sequence in the previous volume. In cases
-  where a sequence is interrupted at the end of a volume and is followed by the
-  first sequence in the post-content, it is the break-before value of that new
-  sequence that matters. In cases where a sequence ends and is followed by a new
-  sequence, both the break-after value of the sequence that ended and the
-  break-before value of the new sequence must be taken into account: 'volume'
-  dominates over all the other values, 'sheet' dominates over 'page' and 'auto',
-  and 'page' dominates over 'auto'.</p>
+<p class="markup">When a sequence ends and is followed by a new sequence, both
+  the break-after value of the sequence that ended and the break-before value
+  of the new sequence must be taken into account: 'volume' dominates over all
+  the other values, 'sheet' dominates over 'page' and 'auto', and 'page'
+  dominates over 'auto'. Note that a sequence does not <em>end</em> when it is
+  interrupted by one or more post-content or pre-content sequences (i.e. at a
+  volume break), and likewise it does not <em>start</em> when it is resumed
+  in the next volume.</p>
 
 <h2>Page Model</h2>
 
@@ -1066,9 +1066,11 @@ the current page, using the number format specified by this element.</p>
 		<dt>break-before [optional]</dt>
           <dd class="no-markup">Inserts a break before the sequence begins.</dd>
           <dd>One of 'auto' (default), 'sheet', 'page' or 'volume'.</dd>
+          <dd>See <a href="#L5024">Duplex</a> for more information.</dd>
 		<dt>break-after [optional]</dt>
           <dd class="no-markup">Inserts a break after the sequence has ended.</dd>
           <dd>One of 'auto' (default), 'sheet', 'page' or 'volume'.</dd>
+          <dd>See <a href="#L5024">Duplex</a> for more information.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -1115,9 +1117,11 @@ should be excluded entirely.</p>
 		<dt>break-before [optional]</dt>
           <dd class="no-markup">Inserts a break before the sequence begins.</dd>
           <dd>One of 'auto' (default), 'sheet' or 'page'.</dd>
+          <dd>See <a href="#L5024">Duplex</a> for more information.</dd>
 		<dt>break-after [optional]</dt>
           <dd class="no-markup">Inserts a break after the sequence has ended.</dd>
           <dd>One of 'auto' (default), 'sheet' or 'page'.</dd>
+          <dd>See <a href="#L5024">Duplex</a> for more information.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -1863,9 +1867,11 @@ data.</p>
 		<dt>break-before [optional]</dt>
           <dd class="no-markup">Inserts a break before the sequence begins.</dd>
           <dd>One of 'auto' (default), 'sheet' or 'page'.</dd>
+          <dd>See <a href="#L5024">Duplex</a> for more information.</dd>
 		<dt>break-after [optional]</dt>
           <dd class="no-markup">Inserts a break after the sequence has ended.</dd>
           <dd>One of 'auto' (default), 'sheet' or 'page'.</dd>
+          <dd>See <a href="#L5024">Duplex</a> for more information.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>

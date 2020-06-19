@@ -436,7 +436,7 @@
     master, name of master to use for this sequence
     initial-page-number, number of first page in the sequence
   -->
-  <define name="sequenceAtts">
+  <define name="textBodySequenceAtts">
     <attribute name="master">
       <data type="IDREF"/>
     </attribute>
@@ -460,6 +460,38 @@
           <value>page</value>
           <value>sheet</value>
           <value>volume</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="page-number-counter">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <ref name="textAtts"/>
+  </define>
+  <define name="preAndPostContentSequenceAtts">
+    <attribute name="master">
+      <data type="IDREF"/>
+    </attribute>
+    <optional>
+      <attribute name="initial-page-number"/>
+    </optional>
+    <optional>
+      <attribute name="break-before">
+        <choice>
+          <value>auto</value>
+          <value>page</value>
+          <value>sheet</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="break-after">
+        <choice>
+          <value>auto</value>
+          <value>page</value>
+          <value>sheet</value>
         </choice>
       </attribute>
     </optional>
@@ -1011,7 +1043,7 @@
         <value>volume</value>
       </choice>
     </attribute>
-    <ref name="sequenceAtts"/>
+    <ref name="preAndPostContentSequenceAtts"/>
   </define>
   <define name="on-toc-start">
     <element name="on-toc-start">
@@ -1169,7 +1201,7 @@
     </element>
   </define>
   <define name="attlist-dynamic-sequence" combine="interleave">
-    <ref name="sequenceAtts"/>
+    <ref name="preAndPostContentSequenceAtts"/>
   </define>
   <!-- A sequence of blocks -->
   <define name="sequence">
@@ -1185,7 +1217,7 @@
     </element>
   </define>
   <define name="attlist-sequence" combine="interleave">
-    <ref name="sequenceAtts"/>
+    <ref name="textBodySequenceAtts"/>
   </define>
   <!-- fallback-scope (all|page) #IMPLIED -->
   <define name="page-area">
