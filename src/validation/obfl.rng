@@ -436,32 +436,12 @@
     master, name of master to use for this sequence
     initial-page-number, number of first page in the sequence
   -->
-  <define name="textBodySequenceAtts">
+  <define name="sequenceAtts-except-break-before-after">
     <attribute name="master">
       <data type="IDREF"/>
     </attribute>
     <optional>
       <attribute name="initial-page-number"/>
-    </optional>
-    <optional>
-      <attribute name="break-before">
-        <choice>
-          <value>auto</value>
-          <value>page</value>
-          <value>sheet</value>
-          <value>volume</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="break-after">
-        <choice>
-          <value>auto</value>
-          <value>page</value>
-          <value>sheet</value>
-          <value>volume</value>
-        </choice>
-      </attribute>
     </optional>
     <optional>
       <attribute name="page-number-counter">
@@ -470,13 +450,31 @@
     </optional>
     <ref name="textAtts"/>
   </define>
-  <define name="preAndPostContentSequenceAtts">
-    <attribute name="master">
-      <data type="IDREF"/>
-    </attribute>
+  <define name="sequenceAtts">
+    <ref name="sequenceAtts-except-break-before-after"/>
     <optional>
-      <attribute name="initial-page-number"/>
+      <attribute name="break-before">
+        <choice>
+          <value>auto</value>
+          <value>page</value>
+          <value>sheet</value>
+          <value>volume</value>
+        </choice>
+      </attribute>
     </optional>
+    <optional>
+      <attribute name="break-after">
+        <choice>
+          <value>auto</value>
+          <value>page</value>
+          <value>sheet</value>
+          <value>volume</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <define name="preAndPostContentSequenceAtts">
+    <ref name="sequenceAtts-except-break-before-after"/>
     <optional>
       <attribute name="break-before">
         <choice>
@@ -495,12 +493,6 @@
         </choice>
       </attribute>
     </optional>
-    <optional>
-      <attribute name="page-number-counter">
-        <data type="NMTOKEN"/>
-      </attribute>
-    </optional>
-    <ref name="textAtts"/>
   </define>
   <!-- Document root -->
   <define name="obfl">
@@ -916,7 +908,7 @@
       <ref name="attlist-pre-content"/>
       <zeroOrMore>
         <choice>
-          <ref name="sequence"/>
+          <ref name="sequence-in-pre-post-content"/>
           <ref name="dynamic-sequence"/>
           <ref name="toc-sequence"/>
         </choice>
@@ -931,7 +923,7 @@
       <ref name="attlist-post-content"/>
       <zeroOrMore>
         <choice>
-          <ref name="sequence"/>
+          <ref name="sequence-in-pre-post-content"/>
           <ref name="dynamic-sequence"/>
           <ref name="toc-sequence"/>
         </choice>
@@ -1217,7 +1209,22 @@
     </element>
   </define>
   <define name="attlist-sequence" combine="interleave">
-    <ref name="textBodySequenceAtts"/>
+    <ref name="sequenceAtts"/>
+  </define>
+  <define name="sequence-in-pre-post-content">
+    <element name="sequence">
+      <ref name="attlist-sequence-in-pre-post-content"/>
+      <oneOrMore>
+        <choice>
+          <ref name="block"/>
+          <ref name="table"/>
+          <ref name="xml-data"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="attlist-sequence-in-pre-post-content" combine="interleave">
+    <ref name="preAndPostContentSequenceAtts"/>
   </define>
   <!-- fallback-scope (all|page) #IMPLIED -->
   <define name="page-area">
