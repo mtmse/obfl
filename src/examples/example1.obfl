@@ -57,6 +57,9 @@
 		</layout-master>
 		<volume-template sheets-in-volume-max="100" use-when="(= $volume 1)">
 			<post-content>
+				<sequence master="main" break-after="page">
+					<block/>
+				</sequence>
 				<dynamic-sequence master="main">
 					<list-of-references collection="notes" range="document">
 						<on-volume-start>
@@ -166,7 +169,7 @@
 				Page number within style: <style name="strong"><page-number ref-id="a"/></style>
 			</block>
 		</sequence>
-		<sequence master="rear">
+		<sequence master="rear" break-before="volume">
 			<block>This is part of a new sequence. Note that this sequence does not have an initial page number. Page numbering continues from the preceding section.</block>
 		</sequence>
 </obfl>
