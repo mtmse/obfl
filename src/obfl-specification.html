@@ -1858,7 +1858,8 @@ data.</p>
             of the XML 1.0 Recommendation [<a class="nref"
             href="#ref-xml">XML</a>].</dd>
         <dt>hyphenate [optional]</dt>
-          <dd>Whether or not to hyphenate text descendants. </dd>
+          <dd>Whether or not to 
+		  text descendants. </dd>
           <dd>One of 'true' or 'false'.</dd>
           <dd>See the <a href="#L21839">attribute description</a> for more
             information.</dd>
@@ -2763,10 +2764,7 @@ characters):</p>
 
 <p>The overall policy for marking capital letters should be determined by the
 implementing application, for example per job or in a system setting. A user's
-preference should be respected, unless doing so would render the text difficult
-to read or interpret for some reason. The hyphenate attribute can be used when
-detailed control over hyphenation is required, e.g. to ensure proper rendering of
-content that may be difficult to interpret if capital markings are used.</p>
+preference should be respected.</p>
 
 <p>The marking of capital letters specified by <code>mark-capital-letters</code>
 applies to all elements in its content unless overridden with another instance of
@@ -2777,55 +2775,9 @@ without specifying another marking policy. Within B, the user's
 preference for marking capital letters should be applied.</p>
 
 <p>The value of the <code>mark-capital-letters</code> attribute can either be 'true' or 'false'.
-The value 'true' indicates that a text algorithm add capital markings to the
-text contents. The value 'false' indicates that a text algorithm should
+The value 'true' indicates that we add capital markings to the
+text contents. The value 'false' indicates we should
 <strong>NOT</strong> add capital markings text contents.</p>
-
-<h4 id="L2784">Example</h4>
-
-<p>The following table illustrates the output for different combinations of
-input text and capital letters marking attribute value:</p>
-
-  <table border="1" style="width: 300px">
-  <thead>
-    <tr>
-      <th>input</th>
-      <th>mark-capital-letters</th>
-      <th>output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="2">Example</td>
-      <td>true</td>
-      <td>_example</td>
-    </tr>
-    <tr>
-      <td>false</td>
-      <td>example</td>
-    </tr>
-    <tr>
-      <td rowspan="2">EXAMPLE</td>
-      <td>true</td>
-      <td>__example</td>
-    </tr>
-    <tr>
-      <td>false</td>
-      <td>example</td>
-    </tr>
-    <tr>
-      <td rowspan="2">THIS IS AN EXAMPLE</td>
-      <td>true</td>
-      <td>___this is an example___</td>
-    </tr>
-    <tr>
-      <td>false</td>
-      <td>this is an example</td>
-    </tr>
-  </tbody>
-</table>
-
-
 
 <h3 id="pagenumbercounter">page-number-counter</h3>
 
