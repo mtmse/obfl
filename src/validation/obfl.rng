@@ -39,6 +39,15 @@
       </attribute>
     </optional>
     <optional>
+      <attribute name="mark-capital-letters">
+        <choice>
+          <value>true</value>
+          <value>false</value>
+          <value></value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
       <attribute name="translate">
         <choice>
           <value></value>
@@ -542,6 +551,15 @@
     </attribute>
     <optional>
       <attribute name="hyphenate">
+        <choice>
+          <value>true</value>
+          <value>false</value>
+          <value></value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="mark-capital-letters">
         <choice>
           <value>true</value>
           <value>false</value>
