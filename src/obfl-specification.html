@@ -45,10 +45,10 @@ href="#ref-xml">XML</a> 1.0 application.</p>
 <?changes?>
 
 <div class="note">
-<p>After a period of one year from the time of the change, the change is no longer 
+<p>After a period of one year from the time of the change, the change is no longer
 seen as incompatible. In practice, this means that:</p>
 <ul>
-<li>a section marked as deleted may be completely removed</li> 
+<li>a section marked as deleted may be completely removed</li>
 <li>a section marked as inserted may be unmarked</li>
 </ul>
 <p>In both cases, the change will be removed from the above list.</p>
@@ -242,7 +242,7 @@ children can be reformatted, even if:</p>
 <p>White space can be introduced manually. For example, by adding an XML
 comment:</p>
 <pre>	&lt;block&gt;
-	&lt;!-- Just an innocent comment at the start of a new block --&gt; 
+	&lt;!-- Just an innocent comment at the start of a new block --&gt;
 	We offer free &lt;style name="em"&gt;technical support&lt;/style&gt; for subscribers.&lt;/block&gt;</pre>
 
 <p>or when nesting block elements:</p>
@@ -304,7 +304,7 @@ following:</p>
   <li>white space at the start or end of inline elements should be rendered
     outside of the element</li>
 </ul>
-<!-- 
+<!--
 <pre>
   &lt;block>We offer free &lt;style name="em">technical support&lt;/style> for subscribers.&lt;/block>
 and not:
@@ -313,7 +313,7 @@ and not:
  -->
 <!--
 
-<p>Any text, including white space, in OBFL elements that are not allowed to contain text should be disregarded 
+<p>Any text, including white space, in OBFL elements that are not allowed to contain text should be disregarded
 in the rendering process.</p>
 
 <p>Therefore, the following OBFL fragment:</p>
@@ -323,23 +323,23 @@ in the rendering process.</p>
 <p>should be interpreted by default as:</p>
 <pre>
   &lt;block>We offer free &lt;style name="em">technical support&lt;/style> for subscribers.&lt;/block>
-</pre> 
+</pre>
  -->
 
 <h2 id="L5021">Pagination</h2>
 
 <p><strong>This section is normative.</strong></p>
 
-<p>The following describes the default pagination behavior and applies unless otherwise 
+<p>The following describes the default pagination behavior and applies unless otherwise
 specified.</p>
 
 <h3 id="L5022">Main Flow</h3>
-  
+
 <p class="markup">Pages in the main flow are counted together in document order, starting from
 1.</p>
 
 <h3 id="L5025">Auxiliary Flows</h3>
-<p class="markup">Pages in pre-content and post-content are counted together within the boundaries of each instance 
+<p class="markup">Pages in pre-content and post-content are counted together within the boundaries of each instance
 of these containers, starting from 1 each time.</p>
 
 <h3 id="L5023">Simplex</h3>
@@ -404,7 +404,7 @@ of these containers, starting from 1 each time.</p>
 The inner and outer margins span the full height of the page.</p>
 
 <p>The <strong>left margin region</strong> is to the left of the text body. The <strong>right margin region</strong> is to the right of the text body.
-Stacked above and below these three areas (and spanning the full width of them) are the page area, header and footer. 
+Stacked above and below these three areas (and spanning the full width of them) are the page area, header and footer.
 The top and bottom page area are closest to the center. The header and footer are closest to the edge of the paper.</p>
 
 <p>Note that if text flow is allowed in the header/footer area, the area of the header/footer is reduced to align with
@@ -470,7 +470,7 @@ the text body area so that the margin area can be used as well.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>In this order: 
+    <dd>In this order:
       <ul>
         <li>meta [optional]</li>
         <li>layout-master [1 or more]</li>
@@ -558,7 +558,7 @@ as the width and height of pages.</p>
       group.</p>
     </dd>
   <dt>Content Model</dt>
-    <dd>In this order: 
+    <dd>In this order:
       <ul>
         <li>template [0 or more]</li>
         <li>default-template [required]</li>
@@ -596,7 +596,7 @@ text flow area is reduced by the combined width of the margin-regions.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>In this order: 
+    <dd>In this order:
       <ul>
         <li>header [1 or more]</li>
         <li>footer [1 or more]</li>
@@ -617,7 +617,7 @@ applies.</p>
   <dt>Usage</dt>
     <dd>layout-master</dd>
   <dt>Content Model</dt>
-    <dd>In this order: 
+    <dd>In this order:
       <ul>
         <li>header [1 or more]</li>
         <li>footer [1 or more]</li>
@@ -648,7 +648,7 @@ collection.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>In this order: 
+    <dd>In this order:
       <ul>
         <li>fallback [optional]</li>
         <li>before [optional]</li>
@@ -1151,20 +1151,20 @@ should be excluded entirely.</p>
     </dd>
   <dt>Special Attributes</dt>
     <dd>The following attributes only apply to block elements in the context of
-      the text body. 
+      the text body.
       <dl>
         <dt>keep-with-previous-sheets [optional]</dt>
           <dd>Indicates that <em>the end of</em> this block should be kept in
             the same volume as the specified number of preceding sheets. This is
             similar to widows, but for pages in a volume instead of rows on a
-            page The priority of this property is higher than the priority for 
+            page The priority of this property is higher than the priority for
             the whole block, as specified by volume-keep-priority.</dd>
           <dd>An integer in the range [0, 9]</dd>
         <dt>keep-with-next-sheets [optional]</dt>
           <dd>Indicates that <em>the beginning of</em> this block should be
             kept in the same volume as the specified number of following
           sheets. This is similar to orphans, but for pages in a volume instead
-           of rows on a page. The priority of this property is higher than the 
+           of rows on a page. The priority of this property is higher than the
            priority for the whole block, as specified by volume-keep-priority.</dd>
           <dd>An integer in the range [0, 9]</dd>
         <dt>volume-keep-priority [optional]</dt>
@@ -1290,7 +1290,7 @@ information.</p>
         on-volume-start and on-volume-end:</p>
       <dl>
         <dt>started-volume-number</dt>
-          <dd>The volume number of the volume that was started or ended, 
+          <dd>The volume number of the volume that was started or ended,
             respectively.</dd>
       </dl>
     </dd>
@@ -1590,7 +1590,7 @@ of a table.</p>
     </ul></dd>
 </dl>
 </div>
-  
+
   <h5 id="table-margins">Borders in and Around Tables</h5>
   <p>Table cell borders collapse unless table-col-spacing &gt; 0 or table-row-spacing &gt; 0.</p>
   <div class="example">
@@ -1600,7 +1600,7 @@ of a table.</p>
     </ul>
   </div>
   <p>Table borders will collapse with cell borders, if not separated by padding.
-    Table borders takes precedence over cell borders, unless the table's border 
+    Table borders takes precedence over cell borders, unless the table's border
     style is 'none'.</p>
   <div class="example">
   <p>Algorithm for selecting a border between a cell and the table border:</p>
@@ -1610,7 +1610,7 @@ of a table.</p>
     <li>else use the table's border</li>
   </ul>
   </div>
-  <p>Table cell borders will combine to a form a single border, that is a mix between the 
+  <p>Table cell borders will combine to a form a single border, that is a mix between the
     two borders.</p>
   <div class="example">
     <p>Algorithm for selecting a shared border for cells A and B:</p>
@@ -1626,7 +1626,7 @@ of a table.</p>
     </ul>
   </div>
   <div class="note">
-  	<p>Note that the presence of a border on one cell will offset the placement of all cells within that row and 
+  	<p>Note that the presence of a border on one cell will offset the placement of all cells within that row and
   	column to the same extent, even if they themselves do not have borders. The cells that do not have borders
   	will have extra empty space in it's place.</p>
   </div>
@@ -1635,7 +1635,7 @@ of a table.</p>
 <p>The thead element represents a row of repeating header cells in a table.
 The cells in the header will repeat at the start of each page that the
 table spans.</p>
-  
+
 <div class="sidebar markup">
   <dl>
     <dt>Usage</dt>
@@ -1650,7 +1650,7 @@ table spans.</p>
   <div class="note">
     <p>Note that the identifier attribute will be disregarded for all descendant elements of thead.</p>
   </div>
-  
+
   <h4 id="tbody" class="include">tbody</h4>
 
 <p>The tbody element represents the body cells in a table.</p>
@@ -1878,7 +1878,7 @@ data.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>In this order: 
+    <dd>In this order:
       <ul>
         <li>on-toc-start [0 or more]</li>
         <li>on-volume-start [0 or more]</li>
@@ -2065,7 +2065,7 @@ toc-sequence.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>In this order: 
+    <dd>In this order:
       <ul>
         <li>pre-content [optional]</li>
         <li>post-content [optional]</li>
@@ -2103,15 +2103,15 @@ volume's body of pages.</p>
 </div>
 
 <h4 id="L8701" class="include">volume-transition</h4>
-  
+
   <div class="note">
     <p>This feature is incubating (2018-01-18). This means that the feature is
       currently a work-in-progress and may change or disappear at any time.</p>
   </div>
-  
+
   <p>The transition element defines a volume transition.</p>
   <p>When this element is present, the last page or sheet in each volume (except the last volume)
-  may be modified so that the volume break occurs earlier than usual: preferably between 
+  may be modified so that the volume break occurs earlier than usual: preferably between
   two blocks, or if that is not possible, between words. The left over contents is moved
   to the next volume. If volume-keep-priority is used, it will be used to determine a suitable
   break point.</p>
@@ -2128,7 +2128,7 @@ volume's body of pages.</p>
     	<dd>Specifies the range within which content can be moved off the last sheet in a volume.</dd>
     	<dd>One of 'page' (default) or 'sheet'.</dd>
     	<dd>If the range is 'page', content on the last page can be moved to the next volume.
-    	If the range is 'sheet', content on the last sheet can be moved. Note that if duplex 
+    	If the range is 'sheet', content on the last sheet can be moved. Note that if duplex
     	is off, the value of this attribute is irrelevant.</dd>
     </dl></dd>
     <dt>Content Model</dt>
@@ -2151,7 +2151,7 @@ volume's body of pages.</p>
   &lt;!-- If the last block has to be split up, use the following. -->
   &lt;block-interrupted>[The paragraph continues in the next volume. --Ed.]&lt;/block-interrupted>
   &lt;block-resumed>[Paragraph continued. --Ed]&lt;/block-resumed>
-  
+
   &lt;!-- If the last block is short enough to fit on the page, use the following. -->
   &lt;sequence-interrupted>
     &lt;block>[The chapter continues in the next volume. --Ed.]&lt;/block>
@@ -2159,14 +2159,14 @@ volume's body of pages.</p>
   &lt;sequence-resumed>
     &lt;block>[Continued from previous volume. --Ed.]&lt;/block>
   &lt;/sequence-resumed>
-  
+
   &lt;any-interrupted>
     &lt;block>--- End of volume ---&lt;/block>
   &lt;/any-interrupted>
   &lt;any-resumed>
     &lt;block>--- Volume begins ---&lt;/block>
   &lt;/any-resumed>
-  
+
 &lt;/volume-transition>
 </pre>
 </div>
@@ -2186,7 +2186,7 @@ volume's body of pages.</p>
     span, style [0 or more]</dd>
   </dl>
 </div>
-  
+
   <h4 id="L8703" class="include">block-resumed</h4>
   <div class="note">
     <p>This feature is incubating (2018-01-18). This means that the feature is
@@ -2217,7 +2217,7 @@ volume's body of pages.</p>
       <dd>block [0 or more]</dd>
     </dl>
   </div>
-  
+
   <h4 id="L8705" class="include">sequence-resumed</h4>
   <div class="note">
     <p>This feature is incubating (2018-01-18). This means that the feature is
@@ -2249,7 +2249,7 @@ volume's body of pages.</p>
       <dd>block [0 or more]</dd>
     </dl>
   </div>
-  
+
   <h4 class="include">any-resumed</h4>
   <div class="note">
     <p>This feature is incubating (2018-09-24). This means that the feature is
@@ -2332,7 +2332,7 @@ sequence.  The actual items are collected from the referenced collection.</p>
       </dl>
     </dd>
   <dt>Content Model</dt>
-    <dd>In this order: 
+    <dd>In this order:
       <ul>
         <li>on-collection-start [optional]</li>
         <li>on-volume-start [optional]</li>
@@ -2505,7 +2505,7 @@ applied to a given xml-data.</p>
           <dd>Specifies an XPath expression to be used to qualify a scenario
             for rendering. If a scenario doesn't qualify on a given xml-data,
             it is excluded from rendering and subsequent cost evaluation.</dd>
-          <dd class="no-markup">The XPath expression must: 
+          <dd class="no-markup">The XPath expression must:
             <ul>
               <li>use namespace prefixes bound in the context of this element
                 (the default namespace cannot be used)</li>
@@ -2539,7 +2539,7 @@ applied to a given xml-data.</p>
 &lt;renderer name="table-renderer">
 	&lt;rendering-scenario xmlns:html="http://www.w3.org/1999/xhtml"
 			qualifier="/html:table/max(html:tr/sum(html:td/(if (@colspan) then @colspan else 1)))&lt;=2"
-			processor="simple-table-processor" 
+			processor="simple-table-processor"
 			cost="(+ (- 30 $min-block-width) $total-height)"/>
 &lt;/renderer>
 </pre>
@@ -2730,14 +2730,14 @@ characters):</p>
     <tr>
       <td rowspan="2">ex-ample</td>
       <td>true</td>
-      <td>ex- 
+      <td>ex-
 
         <p>ample</p>
       </td>
     </tr>
     <tr>
       <td>false</td>
-      <td>ex- 
+      <td>ex-
 
         <p>ample</p>
       </td>
@@ -2745,7 +2745,7 @@ characters):</p>
     <tr>
       <td rowspan="2">example</td>
       <td>true</td>
-      <td>ex- 
+      <td>ex-
 
         <p>ample</p>
       </td>
@@ -2758,20 +2758,20 @@ characters):</p>
     </tr>
   </tbody>
 </table>
-  
+
 <h3 id="pagenumbercounter">page-number-counter</h3>
 
   <p>Specifies a name for a page number counter to use.</p>
-  <p class="markup">By default, all sequences in the 
-    text body are counted together, whereas sequences in pre-content 
+  <p class="markup">By default, all sequences in the
+    text body are counted together, whereas sequences in pre-content
     and post-content are counted together only within the boundaries of each
     instance. This behavior can be changed by using this attribute.</p>
-  
+
   <p>Pages in sequences having the same value for this attribute will have consecutive page
     numbers in document order.</p>
   <p>The value must be a token, but since this value is only used for grouping, no other
     restrictions apply.</p>
-  
+
   <div class="note"><p>Note that:</p>
     <ul>
     <li>Each page number counter starts with 1, unless another value is specified
@@ -2779,7 +2779,7 @@ characters):</p>
     <li>The <code>initial-page-number</code> attribute will affect the page numbers in following
       sequences with the same counter name.</li>
     </ul></div>
-  
+
  <h5 id="L272141">Example</h5>
   <div class="example">
     <p>The following will result in three pages with the page numbers: 1, A, 2:</p>
@@ -3039,7 +3039,7 @@ text-indent="0" ... ... ... ...
                   align="right"</pre>
 
                         <div class="dashed-box" style="margin-left: 1em">
-                        <pre>A child block with 
+                        <pre>A child block with
 block-indent="2"</pre>
                         </div>
                         <pre>row-spacing="1.0" ... ... ... .
@@ -3136,7 +3136,7 @@ block-indent="2"</pre>
     <dd>One of 'inner', 'center', 'outer'.</dd>
 </dl>
 </div>
-  
+
   <h3 id="margin-atts">Margin</h3>
   <div class="sidebar">
     <dl>
@@ -3154,7 +3154,7 @@ block-indent="2"</pre>
       <dd>A number.</dd>
     </dl>
   </div>
-  
+
   <h3 id="padding-atts">Padding</h3>
   <div class="sidebar">
     <dl>
@@ -3195,7 +3195,7 @@ this specification.</p>
 <p>The XML schema rule set "<a
 href="validation/obfl.xsd">validation/obfl.xsd</a>" forms an informative part
 of this specification.</p>
-<!-- 
+<!--
 <p>The DTD rule set "<a
 href="validation/obfl.rng">validation/obfl.dtd</a>" forms an informative part
 of this specification.</p>
