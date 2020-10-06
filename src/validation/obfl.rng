@@ -22,13 +22,8 @@
       <attribute name="row-spacing"/>
     </optional>
   </define>
-  <!-- hyphenate, true to hyphenate, false otherwise -->
-  <define name="textAtts">
-    <optional>
-      <attribute name="xml:lang">
-        <data type="NMTOKEN"/>
-      </attribute>
-    </optional>
+
+  <define name="textModificationAtts">
     <optional>
       <attribute name="hyphenate">
         <choice>
@@ -59,6 +54,15 @@
         </choice>
       </attribute>
     </optional>
+  </define>
+
+  <define name="textAtts">
+    <optional>
+      <attribute name="xml:lang">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <ref name="textModificationAtts" />
   </define>
   <define name="name-id">
     <attribute name="name">
@@ -549,36 +553,7 @@
     <attribute name="xml:lang">
       <data type="NMTOKEN"/>
     </attribute>
-    <optional>
-      <attribute name="hyphenate">
-        <choice>
-          <value>true</value>
-          <value>false</value>
-          <value></value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="mark-capital-letters">
-        <choice>
-          <value>true</value>
-          <value>false</value>
-          <value></value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="translate">
-        <choice>
-          <value></value>
-          <value>pre-translated</value>
-          <value>grade0</value>
-          <value>grade1</value>
-          <value>grade2</value>
-          <value>grade3</value>
-        </choice>
-      </attribute>
-    </optional>
+    <ref name="textModificationAtts" />
   </define>
   <!---->
   <define name="meta">
