@@ -1229,6 +1229,13 @@ should be excluded entirely.</p>
           <dd>An condition that determines whether the contents of the block are
             rendered.</dd>
           <dd>Default is true.</dd>
+          <dd class="markup note">All markers in this block and its descendant
+            elements will be processed, regardless of the outcome of the
+            condition. So it is possible to use a marker's value even when the
+            block is not rendered.</dd>
+          <dd class="markup note">If this display-when condition is present, all
+            identifier attributes, anchors and corresponding collection items in
+            this block and all its descendant elements will be disregarded.</dd>
       </dl>
     </dd>
   <dt>Variables</dt>
