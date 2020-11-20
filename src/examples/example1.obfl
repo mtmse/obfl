@@ -176,7 +176,7 @@
 			<block>
 				Page number within style: <style name="strong"><page-number ref-id="a"/></style>
 			</block>
-			<block display-when="!$starts-at-top-of-page">
+			<block display-when="(! $starts-at-top-of-page)">
 				<marker class="pagenumber" value="7"/>Page number: 7
 			</block>
 		</sequence>
