@@ -1225,6 +1225,29 @@ should be excluded entirely.</p>
             left at the top of a page.</dd>
           <dd>An integer in the range [1, 9].</dd>
           <dd>Default is 1.</dd>
+        <dt>display-when [optional]</dt>
+          <dd>An condition that determines whether the contents of the block are
+            rendered.</dd>
+          <dd>Default is true.</dd>
+          <dd>All markers in this block and its descendant elements will be
+            processed, regardless of the outcome of the condition. So it is
+            possible to use a marker's value even when the block is not
+            rendered.</dd>
+          <dd>If this block (or a descendant element) contains an anchor and the
+            block is not displayed, then the corresponding item is not displayed
+            either.</dd>
+          <dd class="markup note">If the display-when condition is present,
+            this block and all its descendant elements may not have identifier
+            attributes.</dd>
+      </dl>
+    </dd>
+  <dt>Variables</dt>
+    <dd>
+      <p>This variable can be used in the display-when condition:</p>
+      <dl>
+        <dt>starts-at-top-of-page</dt>
+          <dd>A boolean variable that indicates whether the content of this block
+		    starts at the top of the page.</dd>
       </dl>
     </dd>
   <dt>Content Model</dt>
@@ -1648,7 +1671,7 @@ table spans.</p>
 </div>
 
   <div class="note">
-    <p>Note that the identifier attribute will be disregarded for all descendant elements of thead.</p>
+    <p>Note that it is not allowed to use identifier attributes in descendant elements of thead.</p>
   </div>
 
   <h4 id="tbody" class="include">tbody</h4>
@@ -2950,7 +2973,7 @@ combination of braille characters [U+2800-U+28FF] and the following:</p>
       attribute group).</dd>
   <dt>id [optional]</dt>
     <dd>An identifier.</dd>
-    <dd>Identifiers in repeating elements will be discarded.</dd>
+    <dd>It is not allowed to use identifiers in repeating elements.</dd>
   <dt>row-spacing [optional]</dt>
     <dd>The row spacing, in row heights. E.g. 1.0 is normal row spacing, 2.0 is
       double.</dd>

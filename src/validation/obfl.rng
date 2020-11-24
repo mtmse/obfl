@@ -1336,6 +1336,9 @@
   </define>
   <define name="attlist-block" combine="interleave">
     <ref name="blockAtts"/>
+    <optional>
+      <attribute name="display-when"/>
+    </optional>
   </define>
   <define name="item">
     <element name="item">
